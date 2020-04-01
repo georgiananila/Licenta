@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">InfoTrip</string>
+    <string name="continua">Continue with</string>
+    <string name="orText">--------------------or--------------------</string>
+    <string name="emailSingUp">Sing-up with E-Mail</string>
+    <string name="ButonemailSingUp">E-MAIL</string>
+    <string name="testAlreadyhaveanaccount">Already have an account?</string>
+    <string name="buttonLoginMainActivity">LogIn</string>
+</resources>
+

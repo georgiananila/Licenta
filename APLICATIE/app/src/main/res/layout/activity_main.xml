@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back2"
+    tools:context=".MainActivity">
+
+
+    <ImageView
+        android:id="@+id/imageViewStartActivity"
+        android:layout_width="216dp"
+        android:layout_height="137dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/textViewNumeAplicatie"
+        android:layout_width="148dp"
+        android:layout_height="57dp"
+        android:fontFamily="@font/crimson_text_italic"
+        android:text="@string/app_name"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@android:color/secondary_text_light"
+        android:textColorHint="@android:color/holo_blue_light"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewStartActivity"
+        app:layout_constraintStart_toStartOf="@+id/imageViewStartActivity"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewStartActivity"
+        app:layout_constraintVertical_bias="0.025" />
+
+    <TextView
+        android:id="@+id/textViewContinueMainActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/crimson_text_italic"
+        android:text="@string/continua"
+        android:textAlignment="center"
+        android:textColor="?attr/actionMenuTextColor"
+        android:textColorHint="@android:color/background_light"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textViewNumeAplicatie"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textViewNumeAplicatie"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNumeAplicatie"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageButton
+        android:id="@+id/imageButtonFacebookLogInMainActivity"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="16dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/fbiconmainactivity"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textViewContinueMainActivity"
+        app:layout_constraintHorizontal_bias="0.244"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewContinueMainActivity"
+        app:layout_constraintVertical_bias="0.09" />
+
+    <ImageButton
+        android:id="@+id/imageButtonGoogleLogInMainActivity"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginEnd="16dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/googleiconmainactivity"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textViewContinueMainActivity"
+        app:layout_constraintTop_toBottomOf="@+id/textViewContinueMainActivity"
+        app:layout_constraintVertical_bias="0.09" />
+
+    <TextView
+        android:id="@+id/textViewEmailLogInMainActivity"
+        android:layout_width="204dp"
+        android:layout_height="42dp"
+        android:fontFamily="@font/alegreya_bold"
+        android:text="@string/emailSingUp"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_light"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/buttonSingUpEmail"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imageButtonFacebookLogInMainActivity"
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonFacebookLogInMainActivity"
+        app:layout_constraintVertical_bias="0.221" />
+
+    <Button
+        android:id="@+id/buttonSingUpEmail"
+        android:layout_width="102dp"
+        android:layout_height="55dp"
+        android:background="@color/colorPrimary"
+        android:drawableBottom="@android:drawable/ic_dialog_email"
+        android:fadingEdge="none"
+        android:text="@string/ButonemailSingUp"
+        android:textColor="@android:color/background_dark"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewEmailLogInMainActivity"
+        app:layout_constraintEnd_toEndOf="@+id/imageButtonGoogleLogInMainActivity"
+        app:layout_constraintHorizontal_bias="0.468"
+        app:layout_constraintStart_toStartOf="@+id/imageButtonGoogleLogInMainActivity"
+        app:layout_constraintTop_toTopOf="@+id/textViewEmailLogInMainActivity"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textViewAlreadyhaveAccount"
+        android:layout_width="253dp"
+        android:layout_height="61dp"
+        android:fontFamily="@font/alegreya_bold"
+        android:text="@string/testAlreadyhaveanaccount"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_light"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textViewEmailLogInMainActivity"
+        app:layout_constraintTop_toBottomOf="@+id/textViewEmailLogInMainActivity"
+        app:layout_constraintVertical_bias="0.35000002" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="103dp"
+        android:layout_height="58dp"
+        android:background="@color/colorAccent"
+        android:text="@string/buttonLoginMainActivity"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewAlreadyhaveAccount"
+        app:layout_constraintEnd_toEndOf="@+id/buttonSingUpEmail"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/buttonSingUpEmail"
+        app:layout_constraintTop_toTopOf="@+id/textViewAlreadyhaveAccount"
+        app:layout_constraintVertical_bias="0.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
