@@ -5,6 +5,14 @@
     <string name="emailSingUp">Sing-up with E-Mail</string>
     <string name="ButonemailSingUp">E-MAIL</string>
     <string name="testAlreadyhaveanaccount">Already have an account?</string>
-    <string name="buttonLoginMainActivity">LogIn</string>
+    <string name="buttonLoginMainActivity">LOGIN</string>
+    <string name="textViewFirstName">First Name</string>
+    <string name="textViewLastName">Last Name</string>
+    <string name="textViewBirthDate">Birth Date</string>
+    <string name="textViewEmail">E-mail</string>
+    <string name="textViewPass">Password</string>
+    <string name="textViewCheckPass">Check Password</string>
+    <string name="buttonSingUp">Sing-up</string>
+    <string name="textRegister"><u>Register now.</u></string>
 </resources>
 

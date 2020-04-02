@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back3"
+    tools:context=".SingUpActivity">
+
+    <TextView
+        android:id="@+id/textViewSingUpDenumireApp"
+        android:layout_width="179dp"
+        android:layout_height="54dp"
+        android:fontFamily="@font/alegreya_bold"
+        android:text="@string/app_name"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHighlight="@color/colorPrimary"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
+
+    <EditText
+        android:id="@+id/editTextSingUpActivityFirstName"
+        android:layout_width="338dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="116dp"
+        android:layout_marginBottom="556dp"
+        android:drawableLeft="@android:drawable/ic_menu_edit"
+        android:ems="10"
+        android:fontFamily="@font/alegreya_bold"
+        android:hint="@string/textViewFirstName"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textViewSingUpDenumireApp"
+        app:layout_constraintHorizontal_bias="0.327"
+        app:layout_constraintStart_toStartOf="@+id/textViewSingUpDenumireApp"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSingUpDenumireApp"
+        app:layout_constraintVertical_bias="0.446" />
+
+    <EditText
+        android:id="@+id/editTextSingUpActivityBirthDate"
+        android:layout_width="338dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="24dp"
+        android:drawableLeft="@android:drawable/ic_menu_my_calendar"
+        android:ems="10"
+        android:fontFamily="@font/alegreya_bold"
+        android:hint="@string/textViewBirthDate"
+        android:inputType="date"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/editTextSingUpActivityLastName"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/editTextSingUpActivityLastName"
+        app:layout_constraintTop_toBottomOf="@+id/editTextSingUpActivityLastName"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/editTextSingUpActivityLastName"
+        android:layout_width="338dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="28dp"
+        android:drawableLeft="@android:drawable/ic_menu_edit"
+        android:ems="10"
+        android:fontFamily="@font/alegreya_bold"
+        android:hint="@string/textViewLastName"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/editTextSingUpActivityFirstName"
+        app:layout_constraintStart_toStartOf="@+id/editTextSingUpActivityFirstName"
+        app:layout_constraintTop_toBottomOf="@+id/editTextSingUpActivityFirstName"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Spinner
+        android:id="@+id/spinnerSingUpActivityTara"
+        android:layout_width="338dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/editTextSingUpActivityBirthDate"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="@+id/editTextSingUpActivityBirthDate"
+        app:layout_constraintTop_toBottomOf="@+id/editTextSingUpActivityBirthDate"
+        app:layout_constraintVertical_bias="0.037" />
+
+    <EditText
+        android:id="@+id/editTextSingUpActivityEmail"
+        android:layout_width="338dp"
+        android:layout_height="40dp"
+        android:drawableLeft="@android:drawable/ic_dialog_email"
+        android:ems="10"
+        android:fontFamily="@font/alegreya_bold"
+        android:hint="@string/textViewEmail"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/spinnerSingUpActivityTara"
+        app:layout_constraintHorizontal_bias="0.956"
+        app:layout_constraintStart_toStartOf="@+id/spinnerSingUpActivityTara"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerSingUpActivityTara"
+        app:layout_constraintVertical_bias="0.084" />
+
+    <EditText
+        android:id="@+id/editTextSingUpActivityParola"
+        android:layout_width="338dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:drawableLeft="@android:drawable/ic_lock_idle_lock"
+        android:ems="10"
+        android:fontFamily="@font/alegreya_bold"
+        android:hint="@string/textViewPass"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/editTextSingUpActivityEmail"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/editTextSingUpActivityEmail"
+        app:layout_constraintTop_toBottomOf="@+id/editTextSingUpActivityEmail"
+        app:layout_constraintVertical_bias="0.013" />
+
+    <EditText
+        android:id="@+id/editTextSingUpActivityCheckPass"
+        android:layout_width="338dp"
+        android:layout_height="40dp"
+        android:drawableLeft="@android:drawable/checkbox_on_background"
+        android:ems="10"
+        android:fontFamily="@font/alegreya_bold"
+        android:hint="@string/textViewCheckPass"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/editTextSingUpActivityParola"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/editTextSingUpActivityParola"
+        app:layout_constraintTop_toBottomOf="@+id/editTextSingUpActivityParola"
+        app:layout_constraintVertical_bias="0.134" />
+
+    <Button
+        android:id="@+id/buttonSingUpActivitySingUp"
+        android:layout_width="248dp"
+        android:layout_height="66dp"
+        android:background="@drawable/custom_button2"
+        android:text="@string/buttonSingUp"
+        android:textColor="#FFFFFF"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/editTextSingUpActivityCheckPass"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="@+id/editTextSingUpActivityCheckPass"
+        app:layout_constraintTop_toBottomOf="@+id/editTextSingUpActivityCheckPass"
+        app:layout_constraintVertical_bias="0.261" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

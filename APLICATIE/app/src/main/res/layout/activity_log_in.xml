@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LogInActivity"
+    android:background="@drawable/back3">
+
+    <ImageView
+        android:id="@+id/imageViewLogInActivityLogo"
+        android:layout_width="216dp"
+        android:layout_height="137dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.126"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <EditText
+        android:id="@+id/editTextLogInActivityEmail"
+        android:layout_width="271dp"
+        android:layout_height="49dp"
+        android:drawableLeft="@android:drawable/ic_dialog_email"
+        android:ems="10"
+        android:fontFamily="@font/alegreya_bold"
+        android:hint="@string/textViewEmail"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewLogInActivityLogo"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="@+id/imageViewLogInActivityLogo"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewLogInActivityLogo"
+        app:layout_constraintVertical_bias="0.116" />
+
+    <EditText
+        android:id="@+id/editTextLogInActivityPass"
+        android:layout_width="271dp"
+        android:layout_height="49dp"
+        android:drawableLeft="@android:drawable/ic_lock_idle_lock"
+        android:ems="10"
+        android:fontFamily="@font/alegreya_bold"
+        android:inputType="textPassword"
+        android:hint="@string/textViewPass"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/editTextLogInActivityEmail"
+        app:layout_constraintStart_toStartOf="@+id/editTextLogInActivityEmail"
+        app:layout_constraintTop_toBottomOf="@+id/editTextLogInActivityEmail"
+        app:layout_constraintVertical_bias="0.116" />
+
+    <Button
+        android:id="@+id/buttonLogInActivityLogIn"
+        android:layout_width="255dp"
+        android:layout_height="70dp"
+        android:background="@drawable/custom_button4"
+        android:fontFamily="@font/alegreya_bold"
+        android:text="@string/buttonLoginMainActivity"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/editTextLogInActivityPass"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="@+id/editTextLogInActivityPass"
+        app:layout_constraintTop_toBottomOf="@+id/editTextLogInActivityPass"
+        app:layout_constraintVertical_bias="0.312" />
+
+    <TextView
+        android:id="@+id/textViewLogInActivityRegisterNow"
+        android:layout_width="195dp"
+        android:layout_height="41dp"
+        android:clickable="true"
+        android:onClick="onClickRegister"
+        android:fontFamily="@font/alegreya_bold"
+        android:text="@string/textRegister"
+        android:textAlignment="center"
+        android:textColor="@color/cardview_light_background"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/buttonLogInActivityLogIn"
+        app:layout_constraintStart_toStartOf="@+id/buttonLogInActivityLogIn"
+        app:layout_constraintTop_toBottomOf="@+id/buttonLogInActivityLogIn"
+        app:layout_constraintVertical_bias="0.344" />
+</androidx.constraintlayout.widget.ConstraintLayout>
