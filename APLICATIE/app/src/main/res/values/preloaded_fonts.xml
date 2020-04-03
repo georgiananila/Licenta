@@ -2,6 +2,10 @@
 <resources>
     <array name="preloaded_fonts" translatable="false">
         <item>@font/alegreya_bold</item>
+        <item>@font/bungee</item>
+        <item>@font/bungee_outline</item>
+        <item>@font/bungee_shade</item>
+        <item>@font/calligraffitti</item>
         <item>@font/crimson_text_bold_italic</item>
         <item>@font/crimson_text_italic</item>
         <item>@font/crimson_text_semibold_italic</item>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back2"
+    android:background="@drawable/finalback"
     tools:context=".MainActivity">
 
 
@@ -25,7 +25,7 @@
         android:id="@+id/textViewNumeAplicatie"
         android:layout_width="148dp"
         android:layout_height="57dp"
-        android:fontFamily="@font/crimson_text_italic"
+        android:fontFamily="@font/alegreya_bold"
         android:text="@string/app_name"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -43,12 +43,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:fontFamily="@font/crimson_text_italic"
+        android:fontFamily="@font/alegreya_bold"
         android:text="@string/continua"
         android:textAlignment="center"
-        android:textColor="?attr/actionMenuTextColor"
+        android:textColor="@android:color/secondary_text_light"
         android:textColorHint="@android:color/background_light"
-        android:textSize="30sp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/textViewNumeAplicatie"
         app:layout_constraintHorizontal_bias="0.0"
@@ -56,29 +56,14 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewNumeAplicatie"
         app:layout_constraintVertical_bias="0.0" />
 
-    <ImageButton
-        android:id="@+id/imageButtonFacebookLogInMainActivity"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="16dp"
-        android:background="@drawable/custom_button3"
-        android:scaleType="centerCrop"
-        android:src="@drawable/facebooklogocirclenew"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textViewContinueMainActivity"
-        app:layout_constraintHorizontal_bias="0.244"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewContinueMainActivity"
-        app:layout_constraintVertical_bias="0.09" />
-
-    <ImageButton
+    <ImageView
         android:id="@+id/imageButtonGoogleLogInMainActivity"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginEnd="16dp"
-        android:background="@drawable/custom_button3"
+
         android:scaleType="centerCrop"
-        android:src="@drawable/googlelogo"
+        android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textViewContinueMainActivity"
@@ -92,7 +77,7 @@
         android:fontFamily="@font/alegreya_bold"
         android:text="@string/emailSingUp"
         android:textAlignment="center"
-        android:textColor="@android:color/background_light"
+        android:textColor="@android:color/secondary_text_light"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/buttonSingUpEmail"
@@ -100,6 +85,21 @@
         app:layout_constraintStart_toStartOf="@+id/imageButtonFacebookLogInMainActivity"
         app:layout_constraintTop_toBottomOf="@+id/imageButtonFacebookLogInMainActivity"
         app:layout_constraintVertical_bias="0.221" />
+
+    <ImageView
+        android:id="@+id/imageButtonFacebookLogInMainActivity"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="16dp"
+        android:scaleType="centerCrop"
+        android:clickable="true"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textViewContinueMainActivity"
+        app:layout_constraintHorizontal_bias="0.244"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewContinueMainActivity"
+        app:layout_constraintVertical_bias="0.09" />
 
     <Button
         android:id="@+id/buttonSingUpEmail"
@@ -111,7 +111,7 @@
         android:fontFamily="@font/alegreya_bold"
         android:text="@string/ButonemailSingUp"
         android:textAllCaps="false"
-        android:textColor="#FFFFFF"
+        android:textColor="@android:color/secondary_text_light"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/textViewEmailLogInMainActivity"
         app:layout_constraintEnd_toEndOf="@+id/imageButtonGoogleLogInMainActivity"
@@ -127,7 +127,7 @@
         android:fontFamily="@font/alegreya_bold"
         android:text="@string/testAlreadyhaveanaccount"
         android:textAlignment="center"
-        android:textColor="@android:color/background_light"
+        android:textColor="@android:color/secondary_text_light"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/buttonMainActivityLogIn"
@@ -140,11 +140,11 @@
         android:id="@+id/buttonMainActivityLogIn"
         android:layout_width="103dp"
         android:layout_height="58dp"
-        android:background="@drawable/custom_button2"
+        android:background="@drawable/custom_button"
         android:fontFamily="@font/alegreya_bold"
         android:text="@string/buttonLoginMainActivity"
         android:textAllCaps="false"
-        android:textColor="#FFFFFF"
+        android:textColor="@android:color/secondary_text_light"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/textViewAlreadyhaveAccount"
         app:layout_constraintEnd_toEndOf="@+id/buttonSingUpEmail"

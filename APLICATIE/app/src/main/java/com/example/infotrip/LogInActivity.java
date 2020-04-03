@@ -16,7 +16,7 @@ public class LogInActivity extends AppCompatActivity {
         setContentView(R.layout.activity_log_in);
 
         imagineLogoLogIn=(ImageView)findViewById(R.id.imageViewLogInActivityLogo);
-        imagineLogoLogIn.setImageResource(R.drawable.logomainactivity);
+        imagineLogoLogIn.setImageResource(R.drawable.imaginelogologin);
     }
 
     public void onClickRegister(View view) {

@@ -14,5 +14,7 @@
     <string name="textViewCheckPass">Check Password</string>
     <string name="buttonSingUp">Sing-up</string>
     <string name="textRegister"><u>Register now.</u></string>
+    <string name="textalready"><u>Already you have an account?LogIn.</u></string>
+    <string name="spinnertext">Choose a country...</string>
 </resources>
 
