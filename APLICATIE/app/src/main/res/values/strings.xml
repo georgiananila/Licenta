@@ -16,5 +16,16 @@
     <string name="textRegister"><u>Register now.</u></string>
     <string name="textalready"><u>Already you have an account?LogIn.</u></string>
     <string name="spinnertext">Choose a country...</string>
+    <string name="textView1">Traveling</string>
+    <string name="textView2">Start a new Adventure</string>
+    <string name="searchlocation">Search a new location</string>
+    <string name="searchaccomodation">Search for accommodation</string>
+    <string name="ghid">Survival guide</string>
+    <string name="personalizeaza">Personalize your vacation</string>
+    <string name="profil">Profil</string>
+    <string name="logout">LogOut</string>
+    <string name="navi_open">Open navigation</string>
+    <string name="navi_close">Close navigation</string>
+    <string name="photo">Photos</string>
 </resources>
 
