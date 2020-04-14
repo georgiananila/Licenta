@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/louncher2_foreground"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UserProfileActivity"></activity>
+        <activity android:name=".SearchAccomodationActivity"></activity>
+        <activity android:name=".UserProfileActivity" />
         <activity android:name=".PrincipalMeniu" />
         <activity android:name=".SplashActivity">
             <intent-filter>

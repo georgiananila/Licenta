@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SearchAccomodationActivity"
+    android:background="@drawable/back5">
+
+
+    <Spinner
+        android:id="@+id/spinnerforChooseAccomSearchActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.128" />
+
+    <TextView
+        android:id="@+id/textViewDataInceputSearch"
+        android:layout_width="140dp"
+        android:layout_height="47dp"
+        android:fontFamily="@font/alegreya_bold"
+        android:text="@string/date"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.173"
+        app:layout_constraintStart_toStartOf="@+id/spinnerforChooseAccomSearchActivity"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerforChooseAccomSearchActivity"
+        app:layout_constraintVertical_bias="0.064" />
+
+    <TextView
+        android:id="@+id/textViewDataSfarsitSearch"
+        android:layout_width="140dp"
+        android:layout_height="47dp"
+        android:fontFamily="@font/alegreya_bold"
+        android:text="@string/date"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/spinnerforChooseAccomSearchActivity"
+        app:layout_constraintHorizontal_bias="0.336"
+        app:layout_constraintStart_toEndOf="@+id/textViewDataInceputSearch"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerforChooseAccomSearchActivity"
+        app:layout_constraintVertical_bias="0.063" />
+
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="112dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="96dp"
+        android:fontFamily="@font/alegreya_bold"
+        android:text="@string/camere"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textViewDataInceputSearch"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textViewDataInceputSearch"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDataInceputSearch"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textViewnrCamere"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:fontFamily="sans-serif"
+        android:text="0"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonMINUScamere"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.123"
+        app:layout_constraintStart_toEndOf="@+id/buttonMINUScamere"
+        app:layout_constraintTop_toTopOf="@+id/buttonMINUScamere"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/buttonMINUScamere"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:text="@string/minus"
+        android:textSize="18sp"
+        android:background="@drawable/custom_button5"
+        app:layout_constraintBottom_toBottomOf="@+id/textView1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.341"
+        app:layout_constraintStart_toEndOf="@+id/textView1"
+        app:layout_constraintTop_toTopOf="@+id/textView1"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/buttonPlusCamere"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:text="@string/plus"
+        android:textSize="18sp"
+        android:background="@drawable/custom_button5"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewnrCamere"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textViewnrCamere"
+        app:layout_constraintTop_toTopOf="@+id/textViewnrCamere" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="112dp"
+        android:layout_height="32dp"
+        android:fontFamily="@font/alegreya_bold"
+        android:text="@string/adulti"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textView1"
+        app:layout_constraintHorizontal_bias="0.409"
+        app:layout_constraintStart_toStartOf="@+id/textView1"
+        app:layout_constraintTop_toBottomOf="@+id/textView1"
+        app:layout_constraintVertical_bias="0.104" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="112dp"
+        android:layout_height="32dp"
+        android:fontFamily="@font/alegreya_bold"
+        android:text="@string/copii"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textView2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.136" />
+
+    <Button
+        android:id="@+id/buttonMinusAdulti"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:text="@string/minus"
+        android:textSize="18sp"
+        android:background="@drawable/custom_button5"
+        app:layout_constraintBottom_toBottomOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="@+id/buttonMINUScamere"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/buttonMINUScamere"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textViewnrAdulti"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:text="0"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonMinusAdulti"
+        app:layout_constraintEnd_toEndOf="@+id/textViewnrCamere"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/buttonMinusAdulti"
+        app:layout_constraintTop_toTopOf="@+id/buttonMinusAdulti"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/buttonAdaugaNrAdulti"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:text="@string/plus"
+        android:textSize="18sp"
+        android:background="@drawable/custom_button5"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewnrAdulti"
+        app:layout_constraintEnd_toEndOf="@+id/buttonPlusCamere"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/textViewnrAdulti"
+        app:layout_constraintTop_toTopOf="@+id/textViewnrAdulti"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/buttonMinusNrCopii"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:text="@string/minus"
+        android:textSize="18sp"
+        android:background="@drawable/custom_button5"
+        app:layout_constraintBottom_toBottomOf="@+id/textView3"
+        app:layout_constraintEnd_toEndOf="@+id/buttonMinusAdulti"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/textView3"
+        app:layout_constraintTop_toTopOf="@+id/textView3"
+        app:layout_constraintVertical_bias="0.14" />
+
+    <TextView
+        android:id="@+id/textViewNrCopii"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:fontFamily="sans-serif"
+        android:text="0"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonMinusNrCopii"
+        app:layout_constraintEnd_toEndOf="@+id/textViewnrAdulti"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/buttonMinusNrCopii"
+        app:layout_constraintTop_toTopOf="@+id/buttonMinusNrCopii"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/buttonPlusCopii"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:text="@string/plus"
+        android:textSize="18sp"
+        android:background="@drawable/custom_button5"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewNrCopii"
+        app:layout_constraintEnd_toEndOf="@+id/buttonAdaugaNrAdulti"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/textViewNrCopii"
+        app:layout_constraintTop_toTopOf="@+id/textViewNrCopii"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/buttonCautaSearchActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/alegreya_bold"
+        android:text="@string/search"
+        android:background="@drawable/custom_button5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerforChooseAccomSearchActivity"
+        app:layout_constraintVertical_bias="0.784" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
