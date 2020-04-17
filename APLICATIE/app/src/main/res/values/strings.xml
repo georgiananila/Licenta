@@ -28,12 +28,15 @@
     <string name="navi_close">Close navigation</string>
     <string name="photo">Photos</string>
     <string name="History">History</string>
-    <string name="camere">Camere</string>
-    <string name="adulti">Adulti</string>
-    <string name="copii">Copii</string>
+    <string name="camere">Rooms</string>
+    <string name="adulti">Adults</string>
+    <string name="copii">Children</string>
     <string name="minus">-</string>
     <string name="plus">+</string>
     <string name="date">Choose a date</string>
     <string name="search">Search</string>
+    <string name="facebook_app_id">625069008350158</string>
+    <string name="fb_login_protocol_scheme">fb625069008350158</string>
+
 </resources>
 

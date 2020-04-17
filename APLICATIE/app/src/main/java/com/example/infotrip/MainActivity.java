@@ -1,5 +1,6 @@
 package com.example.infotrip;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -15,12 +16,18 @@ import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
+
 public class MainActivity extends AppCompatActivity {
 
 
 
    public ImageView imagineLogo;
-    public ImageView imagineFacebook;
+    public LoginButton imagineFacebook;
     public ImageView imagineGoogle;
     public Button butonCreareCont;
     public Button butonLogIn;
@@ -29,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
     Animation topAnimation,bottomAnim;
 
+    CallbackManager callbackManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -41,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
       imagineLogo.setImageResource(R.drawable.mountaigne2);
 
       imagineFacebook=findViewById(R.id.imageButtonFacebookLogInMainActivity);
-      imagineFacebook.setImageResource(R.drawable.facebooklogocirclenew);
+
 
       imagineGoogle=findViewById(R.id.imageButtonGoogleLogInMainActivity);
       imagineGoogle.setImageResource(R.drawable.googlephoto2);
@@ -67,10 +75,26 @@ public class MainActivity extends AppCompatActivity {
         txt2=findViewById(R.id.textViewContinueMainActivity);
         txt3=findViewById(R.id.textViewEmailLogInMainActivity);
 
+         callbackManager=CallbackManager.Factory.create();
 
+        imagineFacebook.registerCallback(callbackManager,new FacebookCallback<LoginResult>(){
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                Intent logInFacebook=new Intent(getApplicationContext(),PrincipalMeniu.class);
+                startActivity(logInFacebook);
+            }
 
+            @Override
+            public void onCancel() {
 
+            }
 
+            @Override
+            public void onError(FacebookException error) {
+
+            }
+        });
+        
 
         txt3.setAnimation(bottomAnim);
         txt1.setAnimation(bottomAnim);
@@ -89,5 +113,12 @@ public class MainActivity extends AppCompatActivity {
     private void openSingUpActivity() {
         Intent intentLegaturaMainSingUp=new Intent(this,SingUpActivity.class);
         startActivity(intentLegaturaMainSingUp);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        callbackManager.onActivityResult(requestCode,resultCode,data);
     }
 }

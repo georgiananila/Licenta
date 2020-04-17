@@ -6,9 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -62,8 +65,31 @@ public class PrincipalMeniu extends AppCompatActivity implements NavigationView.
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        return true;
+        switch (menuItem.getItemId()) {
+
+
+
+            case R.id.nav_cauta_cazare:
+                Toast.makeText(this, "Search accomodation selected", Toast.LENGTH_SHORT).show();
+                Intent intent1=new Intent(getApplicationContext(),SearchAccomodationActivity.class);
+                startActivity(intent1);
+                return true;
+
+            case R.id.profile:
+                Toast.makeText(this, "Your profile selected", Toast.LENGTH_SHORT).show();
+                Intent intent2=new Intent(getApplicationContext(),UserProfileActivity.class);
+                startActivity(intent2);
+                return true;
+
+
+            default:
+                return super.onOptionsItemSelected(menuItem);
+        }
     }
 
 
+    public void OnClickCautaCazare(View view) {
+        Intent cautaCazare=new Intent(this,SearchAccomodationActivity.class);
+        startActivity(cautaCazare);
+    }
 }

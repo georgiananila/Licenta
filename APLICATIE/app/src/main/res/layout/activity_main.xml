@@ -86,14 +86,12 @@
         app:layout_constraintTop_toBottomOf="@+id/imageButtonFacebookLogInMainActivity"
         app:layout_constraintVertical_bias="0.221" />
 
-    <ImageView
+    <com.facebook.login.widget.LoginButton
         android:id="@+id/imageButtonFacebookLogInMainActivity"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginStart="16dp"
         android:scaleType="centerCrop"
-        android:clickable="true"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/textViewContinueMainActivity"
         app:layout_constraintHorizontal_bias="0.244"
