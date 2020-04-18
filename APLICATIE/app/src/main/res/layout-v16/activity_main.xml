@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/finalback"
+    tools:context=".MainActivity">
+
+
+    <ImageView
+        android:id="@+id/imageViewStartActivity"
+        android:layout_width="216dp"
+        android:layout_height="137dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/textViewNumeAplicatie"
+        android:layout_width="148dp"
+        android:layout_height="57dp"
+        android:fontFamily="@font/alegreya_bold"
+        android:text="@string/app_name"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@android:color/secondary_text_light"
+        android:textColorHint="@android:color/holo_blue_light"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewStartActivity"
+        app:layout_constraintStart_toStartOf="@+id/imageViewStartActivity"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewStartActivity"
+        app:layout_constraintVertical_bias="0.025" />
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/imageButtonGoogleLogInMainActivity"
+        android:layout_width="260dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+
+        android:layout_marginEnd="16dp"
+
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageButtonFacebookLogInMainActivity"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imageButtonFacebookLogInMainActivity"
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonFacebookLogInMainActivity"
+        app:layout_constraintVertical_bias="0.012" />
+
+    <TextView
+        android:id="@+id/textViewEmailLogInMainActivity"
+        android:layout_width="204dp"
+        android:layout_height="42dp"
+        android:fontFamily="@font/alegreya_bold"
+        android:text="@string/emailSingUp"
+        android:textAlignment="center"
+        android:textColor="@android:color/secondary_text_light"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textViewNumeAplicatie"
+        app:layout_constraintHorizontal_bias="0.181"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNumeAplicatie"
+        app:layout_constraintVertical_bias="0.14" />
+
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/imageButtonFacebookLogInMainActivity"
+        android:layout_width="260dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="120dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.536"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewAlreadyhaveAccount"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/buttonSingUpEmail"
+        android:layout_width="102dp"
+        android:layout_height="55dp"
+        android:background="@drawable/custom_button"
+        android:drawableBottom="@android:drawable/ic_dialog_email"
+        android:fadingEdge="none"
+        android:fontFamily="@font/alegreya_bold"
+        android:text="@string/ButonemailSingUp"
+        android:textAllCaps="false"
+        android:textColor="@android:color/secondary_text_light"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewEmailLogInMainActivity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.887"
+        app:layout_constraintStart_toStartOf="@+id/imageButtonGoogleLogInMainActivity"
+        app:layout_constraintTop_toTopOf="@+id/textViewEmailLogInMainActivity"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textViewAlreadyhaveAccount"
+        android:layout_width="253dp"
+        android:layout_height="61dp"
+        android:fontFamily="@font/alegreya_bold"
+        android:text="@string/testAlreadyhaveanaccount"
+        android:textAlignment="center"
+        android:textColor="@android:color/secondary_text_light"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/buttonMainActivityLogIn"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textViewEmailLogInMainActivity"
+        app:layout_constraintTop_toBottomOf="@+id/textViewEmailLogInMainActivity"
+        app:layout_constraintVertical_bias="0.174" />
+
+    <Button
+        android:id="@+id/buttonMainActivityLogIn"
+        android:layout_width="103dp"
+        android:layout_height="58dp"
+        android:background="@drawable/custom_button"
+        android:fontFamily="@font/alegreya_bold"
+        android:text="@string/buttonLoginMainActivity"
+        android:textAllCaps="false"
+        android:textColor="@android:color/secondary_text_light"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewAlreadyhaveAccount"
+        app:layout_constraintEnd_toEndOf="@+id/buttonSingUpEmail"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/buttonSingUpEmail"
+        app:layout_constraintTop_toTopOf="@+id/textViewAlreadyhaveAccount"
+        app:layout_constraintVertical_bias="1.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

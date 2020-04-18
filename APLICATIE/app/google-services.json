@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "964553050096",
+    "firebase_url": "https://infotrip-90e91.firebaseio.com",
+    "project_id": "infotrip-90e91",
+    "storage_bucket": "infotrip-90e91.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:964553050096:android:e341fc1693f98cb1cc3f35",
+        "android_client_info": {
+          "package_name": "com.example.infotrip"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "964553050096-ielpd04budk3numnavahqcicl5hc4bd3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.infotrip",
+            "certificate_hash": "2cf1a2a812b295e29d1ce01806b7e6e05eda77ab"
+          }
+        },
+        {
+          "client_id": "964553050096-35filndb0i2c4o6nic5cbrnslsu8i2mq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNUB9pb8eF4q0KdEV_0sFzirLZMm4C1Hg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "964553050096-2sbn9c3p9q0mr8aur70u79h2ptqp0590.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -37,6 +37,7 @@
     <string name="search">Search</string>
     <string name="facebook_app_id">625069008350158</string>
     <string name="fb_login_protocol_scheme">fb625069008350158</string>
+    <string name="signOut">Sign Out</string>
 
 </resources>
 

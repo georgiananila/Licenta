@@ -4,31 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserProfileActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".UserProfileActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:padding="20dp"
-        android:background="@drawable/back_menu">
+        android:background="@drawable/back_menu"
+        android:padding="20dp">
+
         <ImageView
             android:id="@+id/imageViewProfileUserProfileActivity"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/profile_icon_userprofile"
-            android:layout_centerVertical="true"/>
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_mood" />
 
         <TextView
+            android:id="@+id/textViewUserProfileActivityNumePrenumeUser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textViewUserProfileActivityNumePrenumeUser"
-            android:text="Aici se va concatena numele si prenumele useru-lui"
-            android:textSize="20sp"
-            android:fontFamily="@font/alegreya_bold"
-            android:layout_toRightOf="@id/imageViewProfileUserProfileActivity"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"/>
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/imageViewProfileUserProfileActivity"
+            android:fontFamily="@font/alegreya_bold"
+            android:text="Aici se va concatena numele si prenumele useru-lui"
+            android:textSize="20sp" />
 
 
     </RelativeLayout>
@@ -36,14 +37,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="20dp"
-        android:layout_marginTop="-100dp">
+        android:layout_marginTop="-100dp"
+        android:padding="20dp">
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="0dp"
             android:layout_height="125dp"
-            android:layout_weight="1"
             android:layout_margin="10dp"
+            android:layout_weight="1"
             android:clickable="true"
             android:onClick="onClickAddPhoto"
             app:cardBackgroundColor="#81D9EC"
@@ -74,13 +75,14 @@
             </RelativeLayout>
 
         </com.google.android.material.card.MaterialCardView>
+
         <com.google.android.material.card.MaterialCardView
             android:layout_width="0dp"
             android:layout_height="125dp"
-            android:layout_weight="1"
             android:layout_margin="10dp"
-            android:onClick="onClickHistory"
+            android:layout_weight="1"
             android:clickable="true"
+            android:onClick="onClickHistory"
             app:cardBackgroundColor="#81D9EC"
             app:cardElevation="10dp">
 
@@ -116,16 +118,18 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="20dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="20dp">
+
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Full name"
-            android:layout_marginBottom="10dp">
+            android:layout_marginBottom="10dp"
+            android:hint="First Name">
+
             <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
                 android:id="@+id/fullnameTextInputUserProfilActivity"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_account_circle"
                 android:drawablePadding="10dp"
@@ -134,14 +138,16 @@
             </com.google.android.material.textfield.TextInputEditText>
 
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="BirthDay"
-            android:layout_marginBottom="10dp">
+            android:layout_marginBottom="10dp"
+            android:hint="Last Name">
+
             <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
                 android:id="@+id/BirthDayTextInputUserProfilActivity"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_perm_contact_calendar"
                 android:drawablePadding="10dp"
@@ -150,30 +156,17 @@
             </com.google.android.material.textfield.TextInputEditText>
 
         </com.google.android.material.textfield.TextInputLayout>
+
+
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Country"
-            android:layout_marginBottom="10dp">
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:id="@+id/CountryTextInputUserProfilActivity"
-                android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_map"
-                android:drawablePadding="10dp"
-                android:text="aici se va adauga tara">
+            android:layout_marginBottom="10dp"
+            android:hint="E-Mail">
 
-            </com.google.android.material.textfield.TextInputEditText>
-
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="E-Mail"
-            android:layout_marginBottom="10dp">
             <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
                 android:id="@+id/emailTextInputUserProfilActivity"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_email"
                 android:drawablePadding="10dp"
@@ -182,24 +175,30 @@
             </com.google.android.material.textfield.TextInputEditText>
 
         </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Password"
-            android:layout_marginBottom="10dp">
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:id="@+id/PasswordTextInputUserProfilActivity"
-                android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_remove_red_eye"
-                android:drawablePadding="10dp"
-                android:text="aici se va adauga parola">
 
-            </com.google.android.material.textfield.TextInputEditText>
-
-        </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center|bottom"
+        android:layout_gravity="right">
+        <Button
+            android:id="@+id/buttonSignOutUserProfile"
+            android:layout_width="141dp"
+            android:layout_height="56dp"
+            android:background="@drawable/custom_button3"
+            android:drawableRight="@drawable/ic_action_export"
+            android:layout_gravity="right"
+
+            android:text="@string/signOut" />
+
+    </LinearLayout>
+
+
+
+
 
 
 </LinearLayout>

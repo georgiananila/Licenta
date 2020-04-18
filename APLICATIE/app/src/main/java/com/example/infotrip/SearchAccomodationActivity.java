@@ -8,17 +8,24 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.infotrip.utility.InfoLocalitati;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 
 
 public class SearchAccomodationActivity extends AppCompatActivity {
 
     private static final String TAG="SearchAccomodationActivity";
-
+    Spinner locatie,sate;
     private TextView textView1DataIntrare,textView2DataIesire;
     private DatePickerDialog.OnDateSetListener dateSetListener1, dateSetListener2;
 
@@ -33,19 +40,7 @@ public class SearchAccomodationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_accomodation);
 
-        textView1DataIntrare=(TextView) findViewById(R.id.textViewDataInceputSearch);
-        textView2DataIesire=(TextView)findViewById(R.id.textViewDataSfarsitSearch);
-        textViewRooms=(TextView)findViewById(R.id.textViewnrCamere);
-        textViewAdults=(TextView)findViewById(R.id.textViewnrAdulti);
-        textViewChildren=(TextView)findViewById(R.id.textViewNrCopii);
-
-        minusRoom=(Button)findViewById(R.id.buttonMINUScamere);
-        minusAdult=(Button)findViewById(R.id.buttonMinusAdulti);
-        minusChild=(Button)findViewById(R.id.buttonMinusNrCopii);
-        plusRoom=(Button)findViewById(R.id.buttonPlusCamere);
-        plusAdult=(Button)findViewById(R.id.buttonAdaugaNrAdulti);
-        plusChild=(Button)findViewById(R.id.buttonPlusCopii);
-        butonSearch=(Button)findViewById(R.id.buttonCautaSearchActivity);
+        init();
 
         butonSearch.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,11 +49,6 @@ public class SearchAccomodationActivity extends AppCompatActivity {
                 startActivity(intent1);
             }
         });
-
-
-
-
-
 
         textView1DataIntrare.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,8 +61,6 @@ public class SearchAccomodationActivity extends AppCompatActivity {
                 DatePickerDialog dialog=new DatePickerDialog(SearchAccomodationActivity.this,android.R.style.Theme_Holo_Light_Dialog_MinWidth, dateSetListener1,year,month,day);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
-
-
             }
         });
 
@@ -87,7 +75,6 @@ public class SearchAccomodationActivity extends AppCompatActivity {
             }
         };
 
-
         textView2DataIesire.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,8 +86,6 @@ public class SearchAccomodationActivity extends AppCompatActivity {
                 DatePickerDialog dialog=new DatePickerDialog(SearchAccomodationActivity.this,android.R.style.Theme_Holo_Light_Dialog_MinWidth, dateSetListener2,year,month,day);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
-
-
             }
         });
 
@@ -114,6 +99,54 @@ public class SearchAccomodationActivity extends AppCompatActivity {
             }
         };
 
+        locatie.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                String localitati = locatie.getSelectedItem().toString();
+                if(localitati.length() > 0) {
+                    searchByCounty(localitati);
+                }
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+            }
+        });
+    }
+
+    public void searchByCounty(String county){
+        InfoLocalitati info=new InfoLocalitati(){
+            @Override
+            protected void onPostExecute(String s) {
+                Log.e("DupaExec", s);
+                String[] valori=s.split("#");
+                ArrayList<String> list = new ArrayList<String>(Arrays.asList(valori));
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(),
+                        R.layout.spinner, R.id.txt, list);
+                sate.setAdapter(adapter);
+                adapter.notifyDataSetChanged();
+
+            }
+        };
+        info.execute("https://raw.githubusercontent.com/rennokki/romania.json/master/json/regions.json", county);
+    }
+
+    public void init()
+    {
+        locatie=(Spinner)findViewById(R.id.spinnerforChooseAccomSearchActivity);
+        sate=(Spinner)findViewById(R.id.spinner2SearchActivity);
+        textView1DataIntrare=(TextView) findViewById(R.id.textViewDataInceputSearch);
+        textView2DataIesire=(TextView)findViewById(R.id.textViewDataSfarsitSearch);
+        textViewRooms=(TextView)findViewById(R.id.textViewnrCamere);
+        textViewAdults=(TextView)findViewById(R.id.textViewnrAdulti);
+        textViewChildren=(TextView)findViewById(R.id.textViewNrCopii);
+
+        minusRoom=(Button)findViewById(R.id.buttonMINUScamere);
+        minusAdult=(Button)findViewById(R.id.buttonMinusAdulti);
+        minusChild=(Button)findViewById(R.id.buttonMinusNrCopii);
+        plusRoom=(Button)findViewById(R.id.buttonPlusCamere);
+        plusAdult=(Button)findViewById(R.id.buttonAdaugaNrAdulti);
+        plusChild=(Button)findViewById(R.id.buttonPlusCopii);
+        butonSearch=(Button)findViewById(R.id.buttonCautaSearchActivity);
     }
 
     public void addoneRooom(View v){

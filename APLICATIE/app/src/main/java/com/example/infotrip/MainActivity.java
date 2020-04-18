@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
@@ -15,24 +16,34 @@ import android.widget.ImageButton;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.SignInButton;
+import com.google.android.gms.common.api.ApiException;
+
+import bolts.Task;
 
 public class MainActivity extends AppCompatActivity {
 
 
-
-   public ImageView imagineLogo;
+    private static final int RC_SIGN_IN = 0;
+    public ImageView imagineLogo;
     public LoginButton imagineFacebook;
-    public ImageView imagineGoogle;
+    public SignInButton imagineGoogle;
     public Button butonCreareCont;
     public Button butonLogIn;
     TextView numeAplicatie;
     TextView txt1,txt2,txt3;
+    GoogleSignInClient googleSignInClient;
 
     Animation topAnimation,bottomAnim;
 
@@ -52,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
 
       imagineGoogle=findViewById(R.id.imageButtonGoogleLogInMainActivity);
-      imagineGoogle.setImageResource(R.drawable.googlephoto2);
+
 
       butonLogIn=findViewById(R.id.buttonMainActivityLogIn);
         butonLogIn.setOnClickListener(new View.OnClickListener() {
@@ -72,9 +83,22 @@ public class MainActivity extends AppCompatActivity {
 
         numeAplicatie=findViewById(R.id.textViewNumeAplicatie);
         txt1=findViewById(R.id.textViewAlreadyhaveAccount);
-        txt2=findViewById(R.id.textViewContinueMainActivity);
+
         txt3=findViewById(R.id.textViewEmailLogInMainActivity);
 
+
+        //sing in with google
+        GoogleSignInOptions gso=new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
+
+        googleSignInClient= GoogleSignIn.getClient(this,gso);
+        imagineGoogle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                signIn();
+            }
+        });
+
+        //LogIn with fb
          callbackManager=CallbackManager.Factory.create();
 
         imagineFacebook.registerCallback(callbackManager,new FacebookCallback<LoginResult>(){
@@ -94,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        
+
 
         txt3.setAnimation(bottomAnim);
         txt1.setAnimation(bottomAnim);
@@ -103,6 +127,11 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+    }
+
+    private void signIn() {
+        Intent signInIntent=googleSignInClient.getSignInIntent();
+        startActivityForResult(signInIntent,RC_SIGN_IN);
     }
 
     private void openLogInActivity() {
@@ -118,7 +147,36 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
+        if(requestCode==RC_SIGN_IN){
+            com.google.android.gms.tasks.Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+            handleSingInResult(task);
+        }
         callbackManager.onActivityResult(requestCode,resultCode,data);
+
+
+    }
+
+    private void handleSingInResult(com.google.android.gms.tasks.Task<GoogleSignInAccount> task) {
+        try{
+            GoogleSignInAccount account=task.getResult(ApiException.class);
+
+            startActivity(new Intent(MainActivity.this,UserProfileActivity.class));
+
+
+        }catch (ApiException e){
+            Log.w("GoogleError","signInResult: failed code= "+e.getStatusCode());
+            Toast.makeText(MainActivity.this,"Failed",Toast.LENGTH_LONG).show();
+        }
+
+    }
+
+    @Override
+    protected void onStart() {
+        GoogleSignInAccount account=GoogleSignIn.getLastSignedInAccount(this);
+
+        if(account!=null){
+            startActivity(new Intent(MainActivity.this,UserProfileActivity.class));
+        }
+        super.onStart();
     }
 }

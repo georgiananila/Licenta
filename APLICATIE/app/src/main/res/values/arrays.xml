@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spinnerItems" >
+        <item>ALBA </item>
+        <item>ARAD</item>
+        <item>ARGEȘ</item>
+        <item>BACĂU</item>
+        <item>BIHOR</item>
+        <item>BISTRIȚA-NĂSĂUD</item>
+        <item>BOTOȘANI</item>
+        <item>BRAȘOV</item>
+        <item>BUCUREȘTI</item>
+        <item>BUZĂU</item>
+        <item>CARAȘ-SEVERIN</item>
+        <item>CĂLĂRAȘI</item>
+        <item>CLUJ</item>
+        <item>CONSTANȚA</item>
+        <item>COVASNA</item>
+        <item>DÂMBOVIȚA</item>
+        <item>DOLJ</item>
+        <item>GALAȚI</item>
+        <item>GIURGIU</item>
+        <item>GORJ</item>
+        <item>HARGHITA</item>
+        <item>HUNEDOARA</item>
+        <item>IALOMIȚA</item>
+        <item>IAȘI</item>
+        <item>ILFOV</item>
+        <item>MARAMUREȘ</item>
+        <item>MEHEDINȚI</item>
+        <item>MUREȘ</item>
+        <item>NEAMȚ</item>
+        <item>OLT</item>
+        <item>PRAHOVA</item>
+        <item>SATU-MARE</item>
+        <item>SĂLAJ</item>
+        <item>SIBIU</item>
+        <item>SUCEAVA</item>
+        <item>TELEORMAN</item>
+        <item>TIMIȘ</item>
+        <item>TULCEA</item>
+        <item>VASLUI</item>
+        <item>VÂLCEA</item>
+        <item>VRANCEA</item>
+
+    </string-array>
+</resources>
