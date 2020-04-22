@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/louncher2_foreground"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FilterAccomodationActivity"></activity>
+        <activity android:name=".LocationActivity"></activity>
+        <activity android:name=".SearchLocationActivity" />
+        <activity android:name=".FilterAccomodationActivity" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"

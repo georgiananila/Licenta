@@ -39,6 +39,32 @@
     <string name="fb_login_protocol_scheme">fb625069008350158</string>
     <string name="signOut">Sign Out</string>
     <string name="sort">Sort By</string>
+    <string name="location">Locatia noastra...</string>
+    <string name="descrireMmERIDIONALI">Carpații Meridionali reprezintă cea mai înaltă formațiune muntoasă de la noi. Munții apăruți mai ales pe substrat glaciar sunt dintre cei mai abrupți, multe trasee fiind rezervate drumeților cu experiență. </string>
+    <string name="what">Why choose mountain trails?</string>
+    <string name="descriere"><u>Description</u></string>
+    <string name="mess"><u>Search Accomodation RIGHT NOW!</u></string>
+
+
+    <string name="rute">
+       <b>Canionul Șapte Scări</b>
+        Canionul Șapte Scări este printre favoritele familiilor care sunt pasionate de drumeții. Aici există cea mai lungă tiroliană din țară (peste 2 km), 23 trasee pentru adulți și copii.
+
+        Defileul săpat în calcar are o lungime de 150 m și ajunge până la o altitudine de 1050 m. Este format din șapte scări din metal cu înălțimea cuprinsă între 2,5 și 15 m. Plecarea se face din localitatea Timișu de Jos (Dâmbul Morii) de pe DN1 și ia circa o oră pe jos.
+
+        <b>Treptele lui Gabony</b>
+
+        Treptele lui Gabony reprezintă unul dintre cele mai grele trasee montane de la noi. Este denumit după un nobil maghiar care a donat sume considerabile de bani orașului Brașov. Drumul este așa cum îi spune și numele în trepte. Treptele lui Gabony sunt în număr de 170 și străbat muntele Tâmpa.
+
+        Pe traseu poți admira sute de soiuri de flori, te poți delecta cu zgomotele făcute de păsări și cu fluturii multicolori.
+
+        Traseul pietruit este înlocuit, ușor-ușor, de poteci, bucăți de stânci și rădăcini de copaci. Odată ajuns în vârf te vei putea bucura de efort imortalizând orașul de sus.
+
+        <b>Cabana Pietrele – vf. Retezat</b>
+        Pe drumul dintre Cabana Pietrele și Vârful Retezat vei da peste Valea Stânișoarei care te va duce la Lacul Stânișoara.
+
+De o dificultate medie, traseul urcă până la 1100 m într-o drumeție de circa patru ore. Evită să parcurgi traseul pe timp de iarnă.
+    </string>
 
 
 </resources>

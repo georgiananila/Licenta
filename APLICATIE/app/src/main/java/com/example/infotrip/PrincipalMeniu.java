@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
@@ -21,6 +22,8 @@ public class PrincipalMeniu extends AppCompatActivity implements NavigationView.
     ImageView imagineCazare;
     ImageView imagineGhid;
     ImageView imaginePersonalizeaza;
+
+    CardView searchAcc,searchLoc,ghid,personalizare;
 
     DrawerLayout drawerLayout;
     NavigationView navigationView;
@@ -49,7 +52,33 @@ public class PrincipalMeniu extends AppCompatActivity implements NavigationView.
         imaginePersonalizeaza.setImageResource(R.drawable.personalizeazaicon);
 
 
+        searchAcc=(CardView)findViewById(R.id.cardViewMeniuPrincipalCautaCazare);
+        searchLoc=(CardView)findViewById(R.id.cardViewMeniuPrincipalAlegeLocatie);
+        ghid=(CardView)findViewById(R.id.cardViewMeniuPrincipalGhidSupravietuire);
+        personalizare=(CardView)findViewById(R.id.cardViewMeniuPrincipalPersonalizeaza);
+
+
+        searchAcc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1=new Intent(PrincipalMeniu.this,SearchAccomodationActivity.class);
+                startActivity(intent1);
+
+            }
+        });
+
+        searchLoc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent2=new Intent(PrincipalMeniu.this,SearchLocationActivity.class);
+                startActivity(intent2);
+
+            }
+        });
+
+
     }
+
 
     private void configNavigation() {
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -91,5 +120,9 @@ public class PrincipalMeniu extends AppCompatActivity implements NavigationView.
     public void OnClickCautaCazare(View view) {
         Intent cautaCazare=new Intent(this,SearchAccomodationActivity.class);
         startActivity(cautaCazare);
+    }
+    public void OnClickCautaLocatie(View view) {
+        Intent cautaLocatie=new Intent(this,SearchLocationActivity.class);
+        startActivity(cautaLocatie);
     }
 }
