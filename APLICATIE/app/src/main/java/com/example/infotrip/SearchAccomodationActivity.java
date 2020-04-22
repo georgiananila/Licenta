@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.infotrip.utility.InfoLocalitati;
 
@@ -45,8 +46,13 @@ public class SearchAccomodationActivity extends AppCompatActivity {
         butonSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent1=new Intent(getApplicationContext(),AccomodationListActivity.class);
-                startActivity(intent1);
+                if(sate.getSelectedItem()==null){
+                    Toast.makeText(SearchAccomodationActivity.this,"Choose a village...",Toast.LENGTH_LONG).show();
+                }else{
+                    Intent intent1=new Intent(getApplicationContext(),AccomodationListActivity.class);
+                    startActivity(intent1);
+                }
+
             }
         });
 

@@ -5,9 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AccomodationListActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/back6">
 
-<ListView
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/ButtonFiltreListaAcc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+
+        android:fontFamily="@font/alegreya_bold"
+        android:text="Filter"
+        android:textAlignment="center"
+        android:textColor="@color/browser_actions_bg_grey"
+        android:textSize="18sp"
+        app:srcCompat="@drawable/ic_filter_list"
+
+
+   > </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+    <ListView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/lista_pensiuni"></ListView>

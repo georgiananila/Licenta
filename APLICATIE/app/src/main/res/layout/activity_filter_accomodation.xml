@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FilterAccomodationActivity"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:id="@+id/textViewSort"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sort"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/cgSort"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipTranding"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_marginLeft="10dp"
+            android:text="Trending" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipAlphabetic"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_marginLeft="10dp"
+            android:text="Alphabetic"
+            tools:text="Alphabetic" />
+    </com.google.android.material.chip.ChipGroup>
+
+    <TextView
+        android:id="@+id/textViewFILTER"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Price" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/cgPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:singleSelection="true" >
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipLowToHigh"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_marginLeft="10dp"
+            android:text="Low to High" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipHightoLow"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_marginLeft="10dp"
+            android:text="High to Low" />
+    </com.google.android.material.chip.ChipGroup>
+
+    <Button
+        android:id="@+id/buttonAplicaFiltre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+        style="@style/Widget.MaterialComponents.Chip.Filter"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/custom_button"
+        android:fontFamily="@font/alegreya_bold"
+        android:text="Apply"
+        android:textSize="18sp" />
+</LinearLayout>
