@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/back6"
     android:scrollbarStyle="outsideInset"
-    tools:context=".LocationActivity">
+    tools:context=".activitati.LocationActivity">
 
 
     <ScrollView

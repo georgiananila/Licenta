@@ -44,6 +44,7 @@
     <string name="what">Why choose mountain trails?</string>
     <string name="descriere"><u>Description</u></string>
     <string name="mess"><u>Search Accomodation RIGHT NOW!</u></string>
+    <string name="googleplayservicesapi">AIzaSyBf7hKxub428BvuSnOk9OaPJdhIYHDI0yY</string>
 
 
     <string name="rute">
@@ -65,6 +66,7 @@
 
 De o dificultate medie, traseul urcă până la 1100 m într-o drumeție de circa patru ore. Evită să parcurgi traseul pe timp de iarnă.
     </string>
+    <string name="title_activity_accomodation_google_maps">Map</string>
 
 
 </resources>

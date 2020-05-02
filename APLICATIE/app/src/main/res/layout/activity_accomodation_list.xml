@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AccomodationListActivity"
+    tools:context=".nefolosite.AccomodationListActivity"
     android:orientation="vertical"
     android:background="@drawable/back6">
 
@@ -24,10 +24,7 @@
 
    > </com.google.android.material.floatingactionbutton.FloatingActionButton>
 
-    <ListView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/lista_pensiuni"></ListView>
+
 
 
 
