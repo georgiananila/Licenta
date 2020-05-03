@@ -14,8 +14,10 @@ import java.util.List;
 
 public class GetNearbyPlaces extends AsyncTask<Object,String,String> {
 
-    private  String googlePlaceData,url;
+    private String googlePlaceData,url;
     private GoogleMap mMap;
+    List<HashMap<String,String>> mPlacesList = null;
+
 
     @Override
     protected String doInBackground(Object... objects) {
@@ -28,7 +30,6 @@ public class GetNearbyPlaces extends AsyncTask<Object,String,String> {
             googlePlaceData=downloadUrl.ReadTheURL(url);
         } catch (IOException e) {
             e.printStackTrace();
-
         }
 
         return googlePlaceData;
@@ -39,9 +40,9 @@ public class GetNearbyPlaces extends AsyncTask<Object,String,String> {
         List<HashMap<String,String>> nearByPlacesList=null;
 
         DataParser dataParser=new DataParser();
-      nearByPlacesList=dataParser.parse(s);
-      DisplayNearbyPlaces(nearByPlacesList);
-
+        nearByPlacesList=dataParser.parse(s);
+        mPlacesList = nearByPlacesList;
+        DisplayNearbyPlaces(nearByPlacesList);
     }
 
     private void DisplayNearbyPlaces(List<HashMap<String,String>> nearByPlacesList){
@@ -49,23 +50,22 @@ public class GetNearbyPlaces extends AsyncTask<Object,String,String> {
         for(int i=0;i<nearByPlacesList.size();i++){
             MarkerOptions markerOptions=new MarkerOptions();
             HashMap<String,String> googleNearbyPlace=nearByPlacesList.get(i);
-            String nameOfPlace=googleNearbyPlace.get("place_name");
-            String vicinity=googleNearbyPlace.get("vicinity");
-            double lat=Double.parseDouble(googleNearbyPlace.get("latitude"));
-            double lng=Double.parseDouble(googleNearbyPlace.get("longitude"));
 
-
-
-            LatLng latLng=new LatLng(lat,lng);
-
+            String nameOfPlace = googleNearbyPlace.get("place_name");
+            String vicinity = googleNearbyPlace.get("vicinity");
+            double lat = Double.parseDouble(googleNearbyPlace.get("latitude"));
+            double lng = Double.parseDouble(googleNearbyPlace.get("longitude"));
+            LatLng latLng = new LatLng(lat, lng);
             markerOptions.position(latLng);
-            markerOptions.title(nameOfPlace +  " : "+ vicinity);
+            markerOptions.title(nameOfPlace + " : " + vicinity);
             markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET));
             mMap.addMarker(markerOptions);
             mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-            mMap.animateCamera(CameraUpdateFactory.zoomTo(10));
-
+            mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
         }
+    }
 
+    public List<HashMap<String, String>> getPlacesList() {
+        return mPlacesList;
     }
 }

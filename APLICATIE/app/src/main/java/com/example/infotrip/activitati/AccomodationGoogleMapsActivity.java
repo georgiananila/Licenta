@@ -1,6 +1,7 @@
 package com.example.infotrip.activitati;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -22,6 +23,7 @@ import androidx.fragment.app.FragmentActivity;
 
 import com.example.infotrip.R;
 import com.example.infotrip.utility.GetNearbyPlaces;
+import com.example.infotrip.utility.UrlCreator;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -38,6 +40,8 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.IOException;
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class AccomodationGoogleMapsActivity extends FragmentActivity implements
@@ -54,13 +58,20 @@ public class AccomodationGoogleMapsActivity extends FragmentActivity implements
     private Marker currentUserLocationMarker;
     private  static final int Request_User_Location_Code=99;
     private double latitude,longitude;
-    private  int ProximityRadius=1000;
+    private UrlCreator urlCreator;
+    GetNearbyPlaces getNearbyPlaces = null;
 
-
+    String campground="campground";
+    String restaurant="restaurant";
+    String mLodging = "lodging";
+    int clickOnMarker=1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accomodation_google_maps);
+
+        urlCreator=new UrlCreator();
+        getNearbyPlaces = new GetNearbyPlaces();
 
         if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.M){
             checkUserLocationPermission();
@@ -70,15 +81,12 @@ public class AccomodationGoogleMapsActivity extends FragmentActivity implements
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-    }
 
+    }
 
     public void onClick(View v){
 
-        String campground="campground",room="room",restaurant="restaurants";
-
         Object transferData[]=new Object[2];
-        GetNearbyPlaces getNearbyPlaces=new GetNearbyPlaces();
 
         switch (v.getId()){
             case R.id.search_address:
@@ -107,8 +115,6 @@ public class AccomodationGoogleMapsActivity extends FragmentActivity implements
                                 mMap.addMarker(userMarkerOptions);
                                 mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
                                 mMap.animateCamera(CameraUpdateFactory.zoomTo(10));
-
-
                             }
                         }else{
                             Toast.makeText(this,"Location not found...",Toast.LENGTH_LONG).show();
@@ -125,53 +131,49 @@ public class AccomodationGoogleMapsActivity extends FragmentActivity implements
 
             case R.id.tent_nearby:
                 mMap.clear();
-                String url=getUrl(latitude,longitude,campground);
+                String url=urlCreator.getUrlByType(latitude,longitude,campground);
                 transferData[0]=mMap;
                 transferData[1]=url;
-
                 getNearbyPlaces.execute(transferData);
-                Toast.makeText(this,"Searching for campgrounds...",Toast.LENGTH_LONG).show();
                 Toast.makeText(this,"Showing nearby campgrounds...",Toast.LENGTH_LONG).show();
                 break;
 
             case R.id.bed_nearby:
                 mMap.clear();
-                 url=getUrl(latitude,longitude,room);
+                url=urlCreator.getUrlByType(latitude,longitude, mLodging);
                 transferData[0]=mMap;
                 transferData[1]=url;
-
                 getNearbyPlaces.execute(transferData);
-                Toast.makeText(this,"Searching for Rooms...",Toast.LENGTH_LONG).show();
                 Toast.makeText(this,"Showing nearby Rooms...",Toast.LENGTH_LONG).show();
                 break;
 
-
-
             case R.id.restaurant_nearby:
                 mMap.clear();
-                 url=getUrl(latitude,longitude,restaurant);
+                 url=urlCreator.getUrlByType(latitude,longitude,restaurant);
                 transferData[0]=mMap;
                 transferData[1]=url;
-
                 getNearbyPlaces.execute(transferData);
-                Toast.makeText(this,"Searching for restaurants...",Toast.LENGTH_LONG).show();
                 Toast.makeText(this,"Showing nearby restaurants...",Toast.LENGTH_LONG).show();
                 break;
         }
+         mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+             @Override
+             public boolean onMarkerClick(Marker marker) {
+                 if(clickOnMarker%2==0){
+                     Intent intent=new Intent(AccomodationGoogleMapsActivity.this,DetaliiLocatiiAccomodationActivity.class);
+                     intent.putExtra("title", marker.getTitle());
+                     intent.putExtra("Array", (Serializable) getNearbyPlaces.getPlacesList());
+                     startActivity(intent);
 
-    }
+                 }else{
 
-    private String getUrl(double latitude, double longitude, String nearbyPlace){
-            StringBuilder googleURL=new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?");
-            googleURL.append("location="+latitude+","+longitude);
-            googleURL.append("&radius="+ProximityRadius);
-            googleURL.append("&type=" +nearbyPlace);
-            googleURL.append("&sensor=true" );
-            googleURL.append("&key=" +"AIzaSyBf7hKxub428BvuSnOk9OaPJdhIYHDI0yY");
+                     Log.d("contorul este =",String.valueOf(clickOnMarker));
+                 }
+                 clickOnMarker++;
+                 return false;
+             }
+         });
 
-            Log.d("googleMapsActivity","url = "+googleURL.toString());
-
-        return googleURL.toString();
     }
 
     @Override
@@ -183,7 +185,6 @@ public class AccomodationGoogleMapsActivity extends FragmentActivity implements
                 buildGoogleApiClient();
             mMap.setMyLocationEnabled(true);
         }
-
     }
 
     public boolean checkUserLocationPermission(){
@@ -231,6 +232,7 @@ public class AccomodationGoogleMapsActivity extends FragmentActivity implements
     @Override
     public void onLocationChanged(Location location) {
 
+        Toast.makeText(this,"Going to current location..",Toast.LENGTH_LONG).show();
         latitude=location.getLatitude();
         longitude=location.getLongitude();
 
@@ -248,14 +250,11 @@ public class AccomodationGoogleMapsActivity extends FragmentActivity implements
         markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
 
         currentUserLocationMarker=mMap.addMarker(markerOptions);
-
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
         mMap.animateCamera(CameraUpdateFactory.zoomBy(12));
 
-
         if(googleApiClient!=null){
             LocationServices.FusedLocationApi.removeLocationUpdates(googleApiClient,this);
-
         }
     }
 
