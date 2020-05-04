@@ -30,4 +30,15 @@ public class UrlCreator {
 
         return googleURL.toString();
     }
+
+    public String getUrlForPhoto(int height,int width,String photoReference){
+        StringBuilder googleURL=new StringBuilder("https://maps.googleapis.com/maps/api/place/photo?");
+        googleURL.append("maxwidth="+width);
+        googleURL.append("&maxheight="+height);
+        googleURL.append("&photoreference=" + photoReference);
+        googleURL.append("&key=" +"AIzaSyBf7hKxub428BvuSnOk9OaPJdhIYHDI0yY");
+
+        Log.d("photoGET","url = "+googleURL.toString());
+        return googleURL.toString();
+    }
 }

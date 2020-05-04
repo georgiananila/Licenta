@@ -25,6 +25,9 @@ public class DataParser {
         int userRatingTotal = 0;
         double rating = 0;
         boolean isOpen = false;
+        int photoWidth=0;
+        int photoHeight=0;
+        String photoReference="";
 
         try {
 
@@ -50,17 +53,25 @@ public class DataParser {
             if (!googlePlaceJSON.isNull("open_now")){
                 isOpen = googlePlaceJSON.getJSONObject("opening_hours").getBoolean("open_now");
             }
+            if (!googlePlaceJSON.isNull("photos")) {
+                JSONArray array=googlePlaceJSON.getJSONArray("photos");
+                JSONObject photo= (JSONObject) array.get(0);
+                photoWidth=photo.getInt("width");
+                photoHeight=photo.getInt("height");
+                photoReference=photo.getString("photo_reference");
+            }
 
             googlePlaceMap.put("place_name",NameOfPlace);
             googlePlaceMap.put("vicinity",vicinity);
             googlePlaceMap.put("latitude",latitude);
             googlePlaceMap.put("longitude",longitude);
-            googlePlaceMap.put("referance",referance);
+            googlePlaceMap.put("reference",referance);
             googlePlaceMap.put("types", types);
             googlePlaceMap.put("icon", icon);
             googlePlaceMap.put("user_ratings_total", String.valueOf(userRatingTotal));
             googlePlaceMap.put("rating", String.valueOf(rating));
             googlePlaceMap.put("isOpen", String.valueOf(isOpen));
+            googlePlaceMap.put("photo_reference",photoReference);
 
         } catch (JSONException e) {
             e.printStackTrace();

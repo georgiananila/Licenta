@@ -7,6 +7,7 @@ import android.util.Log;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.infotrip.R;
+import com.example.infotrip.utility.UrlCreator;
 import com.google.android.gms.maps.model.LatLng;
 
 import java.util.HashMap;
@@ -16,6 +17,7 @@ public class DetaliiLocatiiAccomodationActivity extends AppCompatActivity {
 
     String mTitle;
     List<HashMap<String, String >> mInterogrationDetails = null;
+    UrlCreator urlCreator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +25,7 @@ public class DetaliiLocatiiAccomodationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detalii_locatii_accomodation);
         mTitle = getIntent().getStringExtra("title");
         mInterogrationDetails = (List<HashMap<String, String>>) getIntent().getSerializableExtra("Array");
-
+        urlCreator=new UrlCreator();
         Log.d("Title", mTitle);
 
         for(int i = 0; i < mInterogrationDetails.size(); i++){
@@ -47,12 +49,13 @@ public class DetaliiLocatiiAccomodationActivity extends AppCompatActivity {
                 Log.d("vicinity",currentLocation.get("vicinity"));
                 Log.d("latitude",currentLocation.get("latitude"));
                 Log.d("longitude",currentLocation.get("longitude"));
-                Log.d("referance",currentLocation.get("referance"));
+                Log.d("reference",currentLocation.get("reference"));
                 Log.d("types", currentLocation.get("types"));
                 Log.d("icon", currentLocation.get("icon"));
                 Log.d("user_ratings_total", String.valueOf(currentLocation.get("user_ratings_total")));
                 Log.d("rating", String.valueOf(currentLocation.get("rating")));
                 Log.d("isOpen", String.valueOf(currentLocation.get("isOpen")));
+                urlCreator.getUrlForPhoto(400,400,currentLocation.get("photo_reference"));
             }
         }
     }
