@@ -61,6 +61,8 @@ public class AccomodationGoogleMapsActivity extends FragmentActivity implements
     private UrlCreator urlCreator;
     GetNearbyPlaces getNearbyPlaces = null;
 
+
+
     String campground="campground";
     String restaurant="restaurant";
     String mLodging = "lodging";
