@@ -1,0 +1,10 @@
+ANDROID
+
+
+http://coolt.ch/notizen/wp-content/uploads/2016/02/Head-First-Android-Development-2015.pdf
+
+http://enos.itcollege.ee/~jpoial/allalaadimised/reading/Android-Programming-Cookbook.pdf
+
+android studio
+
+http://barbra-coco.dyndns.org/student/learning_android_studio.pdf
