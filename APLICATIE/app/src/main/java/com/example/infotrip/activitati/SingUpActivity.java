@@ -46,7 +46,7 @@ public class SingUpActivity extends AppCompatActivity {
     Spinner spinnerTara;
     EditText editTextnume,editTextprenume,editTextdata,editTextemail,editTextpass,editTextpass2;
 String nume,prenume,data,tara,email,pass,pass2;
-    private ProgressBar progressDialog;
+
     private FirebaseAuth firebaseAuth;
 
 
@@ -129,11 +129,11 @@ String nume,prenume,data,tara,email,pass,pass2;
             @Override
             public void onClick(View v) {
                 registerUser();
-                openUserProfilActivity();
+                //openUserProfilActivity();
             }
         });
         firebaseAuth=FirebaseAuth.getInstance();
-        progressDialog=(ProgressBar)findViewById(R.id.progressBar);
+
         spinnerTara=(Spinner)findViewById(R.id.spinnerSingUpActivityTara);
         editTextnume=(EditText)findViewById(R.id.editTextSingUpActivityFirstName);
         editTextprenume=(EditText)findViewById(R.id.editTextSingUpActivityLastName);
@@ -169,8 +169,48 @@ String nume,prenume,data,tara,email,pass,pass2;
         }
 
         //if validation are ok
+        if(TextUtils.isEmpty(email)){
+            editTextemail.setError("Email is required");
+            return;
+        }
+
+        if(TextUtils.isEmpty(pass)){
+            editTextpass.setError("Password is required");
+            return;
+        }
+        if(TextUtils.isEmpty(pass2)){
+            editTextpass2.setError("Password is required");
+            return;
+        }
+        if(TextUtils.isEmpty(data)){
+            editTextdata.setError("Birthdate is required");
+            return;
+        }
+        if(TextUtils.isEmpty(nume)){
+            editTextnume.setError("LastName is required");
+            return;
+        }
+        if(TextUtils.isEmpty(prenume)){
+            editTextprenume.setError("FirstName is required");
+            return;
+        }
+        if(pass.length()<6){
+            editTextpass.setError("Password must be>=6 characters");
+            return;
+        }
+        if(pass2.length()<6){
+            editTextpass2.setError("Password must be>=6 characters");
+            return;
+        }
+        if(data.length()>8){
+            editTextdata.setError("BirthDate must be=8 characters");
+        }
+        if(data.length()<8){
+            editTextdata.setError("BirthDate must be=8 characters");
+        }
+
         //progress bar
-        progressDialog.setVisibility(View.VISIBLE);
+
 
 
 
@@ -180,7 +220,7 @@ String nume,prenume,data,tara,email,pass,pass2;
                 //aici verificari email daca exista si verificare match password si salvare in room a celorlalte detalii in functie de email
                 if(task.isSuccessful()){
                     Toast.makeText(SingUpActivity.this,"Registered Successfully",Toast.LENGTH_SHORT).show();
-
+                    startActivity(new Intent(getApplicationContext(),UserProfileActivity.class));
 
                 }else{
                     Toast.makeText(SingUpActivity.this,"Could not register, please try again",Toast.LENGTH_SHORT).show();

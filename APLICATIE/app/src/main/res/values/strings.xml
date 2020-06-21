@@ -67,6 +67,7 @@
 De o dificultate medie, traseul urcă până la 1100 m într-o drumeție de circa patru ore. Evită să parcurgi traseul pe timp de iarnă.
     </string>
     <string name="title_activity_accomodation_google_maps">Map</string>
+    <string name="title_activity_search_google_location">Map</string>
 
 
 </resources>

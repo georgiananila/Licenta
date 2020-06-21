@@ -9,38 +9,13 @@
             android:title="Home"
             android:icon="@drawable/ic_home"/>
 
-        <item
-
-            android:id="@+id/nav_cauta_locatie"
-            android:title="@string/searchlocation"
-            android:icon="@drawable/ic_map"/>
-        <item
-
-            android:id="@+id/nav_cauta_cazare"
-            android:title="@string/searchaccomodation"
-            android:icon="@drawable/cazareicon"/>
-        <item
-
-            android:id="@+id/nav_ghid"
-            android:title="@string/ghid"
-            android:icon="@drawable/ic_book"/>
-        <item
-
-            android:id="@+id/nav_pers"
-            android:title="@string/personalizeaza"
-            android:icon="@drawable/ic_map"/>
-
     </group>
 
         <item
             android:title="Profile">
             <menu>
                 <group android:checkableBehavior="single">
-                <item
 
-                    android:id="@+id/logIn"
-                    android:title="@string/buttonLoginMainActivity"
-                    android:icon="@drawable/ic_person_pin"/>
                 <item
 
                     android:id="@+id/profile"

@@ -4,7 +4,7 @@ import android.util.Log;
 
 public class UrlCreator {
 
-    private  int ProximityRadius=1000;
+    private  int ProximityRadius=3000;
 
     public String getUrlByType(double latitude, double longitude, String nearbyPlace){
         StringBuilder googleURL=new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?");

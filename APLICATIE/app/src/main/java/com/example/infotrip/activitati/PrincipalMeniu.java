@@ -72,7 +72,7 @@ public class PrincipalMeniu extends AppCompatActivity implements NavigationView.
         searchLoc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent2=new Intent(PrincipalMeniu.this, SearchLocationActivity.class);
+                Intent intent2=new Intent(PrincipalMeniu.this, SearchGoogleLocationActivity.class);
                 startActivity(intent2);
 
             }
@@ -100,17 +100,15 @@ public class PrincipalMeniu extends AppCompatActivity implements NavigationView.
 
 
 
-            case R.id.nav_cauta_cazare:
-                Toast.makeText(this, "Search accomodation selected", Toast.LENGTH_SHORT).show();
-                Intent intent1=new Intent(getApplicationContext(),SearchAccomodationActivity.class);
-                startActivity(intent1);
-                return true;
+
 
             case R.id.profile:
                 Toast.makeText(this, "Your profile selected", Toast.LENGTH_SHORT).show();
                 Intent intent2=new Intent(getApplicationContext(), UserProfileActivity.class);
                 startActivity(intent2);
                 return true;
+
+
 
 
             default:
@@ -124,7 +122,7 @@ public class PrincipalMeniu extends AppCompatActivity implements NavigationView.
         startActivity(cautaCazare);
     }
     public void OnClickCautaLocatie(View view) {
-        Intent cautaLocatie=new Intent(this,SearchLocationActivity.class);
+        Intent cautaLocatie=new Intent(this,SearchGoogleLocationActivity.class);
         startActivity(cautaLocatie);
     }
 }
