@@ -29,14 +29,15 @@
         android:layout_height="40dp"
         android:layout_marginEnd="116dp"
         android:layout_marginBottom="556dp"
-        android:drawableLeft="@drawable/ic_action_name11"
         android:background="@drawable/edittest_custom"
-        android:textColorHint="#FFFFFF"
-        android:textColor="#FFFFFF"
+        android:drawableLeft="@drawable/ic_action_name11"
         android:ems="10"
         android:fontFamily="@font/alegreya_bold"
         android:hint="@string/textViewFirstName"
         android:inputType="textPersonName"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        app:hintEnabled="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/textViewSingUpDenumireApp"
         app:layout_constraintHorizontal_bias="0.327"
@@ -163,7 +164,6 @@
         android:background="@drawable/custom_button"
         android:text="@string/buttonSingUp"
         android:textColor="#FFFFFF"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/editTextSingUpActivityCheckPass"
         app:layout_constraintHorizontal_bias="0.495"
@@ -176,8 +176,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
-        android:onClick="onClickLogIn"
         android:fontFamily="@font/alegreya_bold"
+        android:onClick="onClickLogIn"
         android:text="@string/textalready"
         android:textColor="@color/cardview_light_background"
         android:textSize="15sp"
@@ -187,5 +187,19 @@
         app:layout_constraintStart_toStartOf="@+id/buttonSingUpActivitySingUp"
         app:layout_constraintTop_toBottomOf="@+id/buttonSingUpActivitySingUp"
         app:layout_constraintVertical_bias="0.14" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textViewSingUpActivity"
+        app:layout_constraintHorizontal_bias="0.557"
+        app:layout_constraintStart_toStartOf="@+id/textViewSingUpActivity"
+        app:layout_constraintTop_toTopOf="@+id/textViewSingUpActivity"
+        app:layout_constraintVertical_bias="0.384"
+        tools:visibility="invisible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
