@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -61,6 +62,7 @@ public class AccomodationGoogleMapsActivity extends FragmentActivity implements
     private UrlCreator urlCreator;
     GetNearbyPlaces getNearbyPlaces = null;
 
+    AutoCompleteTextView addressfield;
 
 
     String campground="campground";
@@ -73,6 +75,8 @@ public class AccomodationGoogleMapsActivity extends FragmentActivity implements
         setContentView(R.layout.activity_accomodation_google_maps);
 
         urlCreator=new UrlCreator();
+        addressfield =(AutoCompleteTextView) findViewById(R.id.location_search);
+        autocomplete();
 
         if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.M){
             checkUserLocationPermission();
@@ -85,6 +89,10 @@ public class AccomodationGoogleMapsActivity extends FragmentActivity implements
 
     }
 
+    private void autocomplete() {
+
+    }
+
     public void onClick(View v){
 
         getNearbyPlaces = new GetNearbyPlaces();
@@ -92,7 +100,7 @@ public class AccomodationGoogleMapsActivity extends FragmentActivity implements
 
         switch (v.getId()){
             case R.id.search_address:
-                EditText addressfield=(EditText)findViewById(R.id.location_search);
+
                 String  address=addressfield.getText().toString();
 
                 List<Address> addressList=null;

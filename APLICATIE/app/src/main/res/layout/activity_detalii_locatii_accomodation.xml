@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -28,4 +29,60 @@
         android:layout_height="128dp"
         android:id="@+id/textViewDenumireLocatie"/>
 
-</LinearLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_fav"
+        android:layout_width="wrap_content"
+        android:layout_height="118dp"
+        android:layout_gravity="bottom|end"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="260dp"
+        android:elevation="6dp"
+        android:src="@drawable/ic_fav"
+        app:backgroundTint="@color/culori_04"
+        android:visibility="invisible"
+
+        app:pressedTranslationZ="12dp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_review"
+        android:layout_width="wrap_content"
+        android:layout_height="118dp"
+        android:layout_gravity="bottom|end"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="180dp"
+        android:elevation="6dp"
+        android:src="@drawable/ic_review"
+        app:backgroundTint="@color/culori_03"
+
+        android:visibility="invisible"
+        app:pressedTranslationZ="12dp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_amfost"
+        android:layout_width="wrap_content"
+        android:layout_height="118dp"
+        android:layout_gravity="bottom|end"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="100dp"
+        android:elevation="6dp"
+        android:src="@drawable/ic_check"
+        app:backgroundTint="@color/culori_02"
+
+        android:visibility="invisible"
+        app:pressedTranslationZ="12dp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_plus"
+        android:layout_width="wrap_content"
+        android:layout_height="118dp"
+        android:layout_gravity="bottom|end"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="16dp"
+        android:elevation="6dp"
+        android:src="@drawable/ic_add_plus"
+        app:backgroundTint="@color/culori_01"
+
+
+        app:pressedTranslationZ="12dp" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
