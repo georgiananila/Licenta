@@ -1,19 +1,32 @@
 package com.example.infotrip.activitati;
 
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Icon;
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bumptech.glide.Glide;
 import com.example.infotrip.R;
 import com.example.infotrip.utility.UrlCreator;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 
@@ -25,6 +38,8 @@ public class DetaliiLocatiiAccomodationActivity extends AppCompatActivity {
     FloatingActionButton fab_add,fab_am_fost,fab_heart,fab_review;
     Animation fabOpen,fabClose,fabRclockWise;
     boolean isOpen=false;
+    TextView textViewDenumire,textViewVicinity,textViewLatLong,textViewUserRatingTotal,textViewRating,textOpen;
+    ImageView imagineIcon,imageViewGif;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +54,17 @@ public class DetaliiLocatiiAccomodationActivity extends AppCompatActivity {
             Log.d("Lista", mInterogrationDetails.get(i).toString());
         }
 
+        textViewDenumire=(TextView)findViewById(R.id.textViewDenumireLocatie) ;
+       // textViewType=(TextView)findViewById(R.id.textType);
+        textViewLatLong=(TextView)findViewById(R.id.textlatlong);
+        textViewVicinity=(TextView)findViewById(R.id.textVicinity);
+        textViewUserRatingTotal=(TextView)findViewById(R.id.testUserRatingTotal);
+        textViewRating=(TextView)findViewById(R.id.textRating);
+        textOpen=(TextView)findViewById(R.id.textOpen);
+
+        imagineIcon=(ImageView)findViewById(R.id.imageViewIcon);
+        imageViewGif=(ImageView)findViewById(R.id.imageViewGif);
+
         populateListByTitle();
 
         fab_add=(FloatingActionButton)findViewById(R.id.fab_plus);
@@ -48,6 +74,8 @@ public class DetaliiLocatiiAccomodationActivity extends AppCompatActivity {
         fabOpen= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fab_open);
         fabClose= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fab_close);
         fabRclockWise= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotete_clockwise);
+
+
 
         fab_add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,8 +125,72 @@ public class DetaliiLocatiiAccomodationActivity extends AppCompatActivity {
                 Log.d("user_ratings_total", String.valueOf(currentLocation.get("user_ratings_total")));
                 Log.d("rating", String.valueOf(currentLocation.get("rating")));
                 Log.d("isOpen", String.valueOf(currentLocation.get("isOpen")));
-                urlCreator.getUrlForPhoto(400,400,currentLocation.get("photo_reference"));
+                String imageURL = urlCreator.getUrlForPhoto(400,400,currentLocation.get("photo_reference"));
+
+                new DownloadImageTask((ImageView) findViewById(R.id.imageViewIcon)).execute(imageURL);
+                String rating=String.valueOf(currentLocation.get("rating"));
+                textViewDenumire.setText(currentLocation.get("place_name"));
+                //textViewType.setText(currentLocation.get("types"));
+                textViewLatLong.setText("Latitude:"+currentLocation.get("latitude")+" and Longitude:"+currentLocation.get("longitude"));
+                textViewVicinity.setText("Adress:"+currentLocation.get("vicinity"));
+                textViewUserRatingTotal.setText("Total number of ratings:"+ String.valueOf(currentLocation.get("user_ratings_total")));
+                textViewRating.setText("Rating:"+rating );
+                String open=String.valueOf(currentLocation.get("isOpen"));
+                if(open=="true"){
+                    open="Yes";
+
+                }else{
+                    open="No";
+                }
+                textOpen.setText("Open now:"+open);
+                if(Float.parseFloat(rating)>=4.0){
+                    Glide.with(this).load(R.raw.like).into(imageViewGif);
+                }else if(Float.parseFloat(rating)<4.0&&Float.parseFloat(rating)>0){
+                    Glide.with(this).load(R.raw.bad).into(imageViewGif);
+                }else if(Float.parseFloat(rating)==0){
+                    Glide.with(this).load(R.raw.review).into(imageViewGif);
+                }
+
+
             }
+        }
+    }
+
+    public void addReview(View view) {
+        Intent intent=new Intent(getApplicationContext(),ReviewActivity.class);
+        startActivity(intent);
+    }
+
+    public void addHistory(View view) {
+        //save in database
+    }
+
+    public void addFav(View view) {
+        //save in database
+    }
+
+    private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
+        ImageView bmImage;
+
+        public DownloadImageTask(ImageView bmImage) {
+            this.bmImage = bmImage;
+        }
+
+        protected Bitmap doInBackground(String... urls) {
+            String urldisplay = urls[0];
+            Bitmap mIcon11 = null;
+            try {
+                InputStream in = new java.net.URL(urldisplay).openStream();
+                mIcon11 = BitmapFactory.decodeStream(in);
+            } catch (Exception e) {
+                Log.e("Error", e.getMessage());
+                e.printStackTrace();
+            }
+            return mIcon11;
+        }
+
+        protected void onPostExecute(Bitmap result) {
+            bmImage.setImageBitmap(result);
         }
     }
 }

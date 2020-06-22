@@ -69,6 +69,10 @@ De o dificultate medie, traseul urcă până la 1100 m într-o drumeție de circ
     <string name="title_activity_accomodation_google_maps">Map</string>
     <string name="title_activity_search_google_location">Map</string>
     <string name="title_activity_detalii_locatii">DetaliiLocatiiActivity</string>
+    <string name="intrebare">How was your experience in this location?</string>
+    <string name="rate">Rate:</string>
+    <string name="add">ADD</string>
+    <string name="RateUs">Rate Us! It`s very important!</string>
 
 
 </resources>

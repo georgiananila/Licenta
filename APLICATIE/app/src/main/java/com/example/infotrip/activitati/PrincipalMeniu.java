@@ -108,6 +108,12 @@ public class PrincipalMeniu extends AppCompatActivity implements NavigationView.
                 startActivity(intent2);
                 return true;
 
+            case R.id.ratingApp:
+                Toast.makeText(this, "Rate Us", Toast.LENGTH_SHORT).show();
+                Intent intent3=new Intent(getApplicationContext(), RateApplicationActivity.class);
+                startActivity(intent3);
+                return true;
+
 
 
 

@@ -24,6 +24,7 @@ import androidx.fragment.app.FragmentActivity;
 
 import com.example.infotrip.R;
 import com.example.infotrip.utility.GetNearbyPlaces;
+import com.example.infotrip.utility.PlaceAutoSuggestAdapter;
 import com.example.infotrip.utility.UrlCreator;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.location.LocationListener;
@@ -90,7 +91,7 @@ public class AccomodationGoogleMapsActivity extends FragmentActivity implements
     }
 
     private void autocomplete() {
-
+    addressfield.setAdapter(new PlaceAutoSuggestAdapter(AccomodationGoogleMapsActivity.this,android.R.layout.simple_list_item_1));
     }
 
     public void onClick(View v){

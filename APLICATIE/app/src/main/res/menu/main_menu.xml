@@ -22,11 +22,19 @@
                     android:title="@string/profil"
                     android:icon="@drawable/ic_mood"
                     />
+                    <item
+
+                        android:id="@+id/ratingApp"
+                        android:title="Rate Us"
+                        android:icon="@drawable/ic_stars"
+
+                        />
                 <item
 
                     android:id="@+id/logout"
                     android:title="@string/logout"
-                    android:icon="@drawable/logout_icon"/>
+                    android:icon="@drawable/logout_icon"
+                    />
                 </group>
             </menu>
         </item>

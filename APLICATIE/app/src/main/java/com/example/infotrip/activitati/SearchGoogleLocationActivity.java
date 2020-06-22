@@ -17,11 +17,13 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.infotrip.R;
 import com.example.infotrip.utility.GetNearbyPlaces;
+import com.example.infotrip.utility.PlaceAutoSuggestAdapter;
 import com.example.infotrip.utility.UrlCreator;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -56,7 +58,7 @@ public class SearchGoogleLocationActivity extends FragmentActivity implements  O
     private UrlCreator urlCreator;
     GetNearbyPlaces getNearbyPlaces = null;
 
-
+    AutoCompleteTextView addressfield;
 
     String atractii="tourist_attraction";
 
@@ -65,7 +67,8 @@ public class SearchGoogleLocationActivity extends FragmentActivity implements  O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_google_location);
-
+         addressfield=(AutoCompleteTextView) findViewById(R.id.location_search);
+         autocomplete();
         urlCreator=new UrlCreator();
 
         if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.M){
@@ -79,6 +82,10 @@ public class SearchGoogleLocationActivity extends FragmentActivity implements  O
 
     }
 
+    private void autocomplete() {
+        addressfield.setAdapter(new PlaceAutoSuggestAdapter(SearchGoogleLocationActivity.this,android.R.layout.simple_list_item_1));
+    }
+
     public void onClick(View v){
 
         getNearbyPlaces = new GetNearbyPlaces();
@@ -86,7 +93,7 @@ public class SearchGoogleLocationActivity extends FragmentActivity implements  O
 
         switch (v.getId()){
             case R.id.search_address:
-                EditText addressfield=(EditText)findViewById(R.id.location_search);
+
                 String  address=addressfield.getText().toString();
 
                 List<Address> addressList=null;

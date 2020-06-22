@@ -19,6 +19,8 @@
         android:roundIcon="@mipmap/louncher2_foreground"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".activitati.RateApplicationActivity"></activity>
+        <activity android:name=".activitati.ReviewActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
