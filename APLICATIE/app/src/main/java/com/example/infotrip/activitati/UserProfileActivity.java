@@ -2,7 +2,10 @@ package com.example.infotrip.activitati;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -28,8 +31,10 @@ public class UserProfileActivity extends AppCompatActivity {
     GoogleSignInClient googleSignInClient;
     TextView numeMare;
     TextInputEditText firstname,email,lastname;
-    ImageView imgprofil;
+    ImageView imgprofil ,imgFav;
     Button signOUT;
+    CardView istoric,fav;
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +46,12 @@ public class UserProfileActivity extends AppCompatActivity {
        lastname=(TextInputEditText)findViewById(R.id.BirthDayTextInputUserProfilActivity);
         imgprofil=(ImageView)findViewById(R.id.imageViewProfileUserProfileActivity);
         signOUT=(Button)findViewById(R.id.buttonSignOutUserProfile);
+        imgFav=(ImageView)findViewById(R.id.imageViewFav);
+
+        Glide.with(this).load(R.raw.heart).into(imgFav);
+
+
+
 
         signOUT.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,6 +82,25 @@ public class UserProfileActivity extends AppCompatActivity {
 
 
         }
+        istoric=(CardView)findViewById(R.id.cardViewIstoric);
+        istoric.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1=new Intent(UserProfileActivity.this, IstoricPersonalActivity.class);
+                startActivity(intent1);
+
+            }
+        });
+
+        fav=(CardView)findViewById(R.id.cardViewFav);
+        fav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent2=new Intent(UserProfileActivity.this, AddPhotoActivity.class);
+                startActivity(intent2);
+
+            }
+        });
 
     }
 
@@ -89,5 +119,10 @@ public class UserProfileActivity extends AppCompatActivity {
     }
 
     public void onClickHistory(View view) {
+    }
+
+    public void vizualizareFavorite(View view) {
+        Intent intent=new Intent(UserProfileActivity.this,FavoriteActivity.class);
+        startActivity(intent);
     }
 }

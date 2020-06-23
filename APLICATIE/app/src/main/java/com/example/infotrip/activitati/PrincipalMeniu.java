@@ -2,21 +2,30 @@ package com.example.infotrip.activitati;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.infotrip.R;
 import com.example.infotrip.nefolosite.SearchAccomodationActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class PrincipalMeniu extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     ImageView imagineAventura;
@@ -26,7 +35,7 @@ public class PrincipalMeniu extends AppCompatActivity implements NavigationView.
     ImageView imaginePersonalizeaza;
 
     CardView searchAcc,searchLoc,ghid,personalizare;
-
+FirebaseAuth auth;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
@@ -53,7 +62,7 @@ public class PrincipalMeniu extends AppCompatActivity implements NavigationView.
         imaginePersonalizeaza=(ImageView)findViewById(R.id.imageViewPersonalizeazaMeniuPrincipal);
         imaginePersonalizeaza.setImageResource(R.drawable.personalizeazaicon);
 
-
+        auth=FirebaseAuth.getInstance();
         searchAcc=(CardView)findViewById(R.id.cardViewMeniuPrincipalCautaCazare);
         searchLoc=(CardView)findViewById(R.id.cardViewMeniuPrincipalAlegeLocatie);
         ghid=(CardView)findViewById(R.id.cardViewMeniuPrincipalGhidSupravietuire);
@@ -114,6 +123,15 @@ public class PrincipalMeniu extends AppCompatActivity implements NavigationView.
                 startActivity(intent3);
                 return true;
 
+            case R.id.logout:
+                //signout
+
+
+            case R.id.changePass:
+                showRecoverPasswordDialog();
+
+
+
 
 
 
@@ -131,4 +149,61 @@ public class PrincipalMeniu extends AppCompatActivity implements NavigationView.
         Intent cautaLocatie=new Intent(this,SearchGoogleLocationActivity.class);
         startActivity(cautaLocatie);
     }
+
+    private void showRecoverPasswordDialog() {
+        AlertDialog.Builder builder=new AlertDialog.Builder(this);
+        builder.setTitle("Recover Password");
+
+        LinearLayout linearLayout=new LinearLayout(this);
+
+        final EditText emailEt=new EditText(this);
+        emailEt.setHint("Email");
+        emailEt.setInputType(InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
+
+
+        emailEt.setMinEms(10);
+        linearLayout.addView(emailEt);
+        linearLayout.setPadding(10,10,10,10);
+
+        builder.setView(linearLayout);
+
+
+        builder.setPositiveButton("Recover", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String email=emailEt.getText().toString().trim();
+                beginRecovery(email);
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        builder.create().show();
+
+    }
+
+    private void beginRecovery(String email) {
+        auth.sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()){
+                    Toast.makeText(PrincipalMeniu.this,"Email sent",Toast.LENGTH_SHORT).show();
+
+                }else{
+                    Toast.makeText(PrincipalMeniu.this,"Failed...",Toast.LENGTH_SHORT).show();
+                }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(PrincipalMeniu.this,e.getMessage(),Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+
 }

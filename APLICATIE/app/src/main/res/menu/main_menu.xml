@@ -29,6 +29,14 @@
                         android:icon="@drawable/ic_stars"
 
                         />
+
+                    <item
+
+                        android:id="@+id/changePass"
+                        android:title="Change password"
+                        android:icon="@drawable/ic_security"
+
+                        />
                 <item
 
                     android:id="@+id/logout"

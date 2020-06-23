@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activitati.AddPhotoActivity"
+    android:background="@drawable/back5"
+    android:padding="16dp">
+
+    <Button
+        android:id="@+id/buttonChooseImage"
+        android:layout_width="116dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_button5"
+        android:fontFamily="@font/alegreya_bold"
+        android:text="Choose file"
+        android:textColor="@color/browser_actions_bg_grey" />
+
+    <EditText
+        android:id="@+id/edit_text_file_name"
+        android:layout_width="258dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="18dp"
+        android:layout_toEndOf="@+id/buttonChooseImage"
+        android:background="@drawable/edittest_custom"
+        android:fontFamily="@font/alegreya_bold"
+        android:text="Enter file name"
+        android:textColor="@color/browser_actions_bg_grey" />
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/imageupload"
+        android:layout_below="@+id/edit_text_file_name"
+        android:layout_above="@+id/progressbarupload"
+        android:layout_marginTop="16dp"/>
+
+    <ProgressBar
+        android:id="@+id/progressbarupload"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="202dp" />
+
+    <Button
+        android:id="@+id/upload"
+        android:layout_width="113dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="207dp"
+        android:layout_marginBottom="126dp"
+        android:background="@drawable/custom_button4"
+        android:fontFamily="@font/alegreya_bold"
+        android:text="Upload"
+        android:textColor="@color/browser_actions_bg_grey" />
+
+    <TextView
+        android:id="@+id/textViewShow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="134dp"
+        android:fontFamily="@font/alegreya_bold"
+        android:text="Show uploads"
+        android:textColor="@color/browser_actions_bg_grey"
+        android:textSize="24sp" />
+
+</RelativeLayout>

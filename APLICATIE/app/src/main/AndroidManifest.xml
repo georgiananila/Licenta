@@ -11,6 +11,8 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="com.google.android.providers.gsf.permisson.READ_GSERVICES" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -19,7 +21,10 @@
         android:roundIcon="@mipmap/louncher2_foreground"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activitati.RateApplicationActivity"></activity>
+        <activity android:name=".activitati.AddPhotoActivity"></activity>
+        <activity android:name=".activitati.FavoriteActivity" />
+        <activity android:name=".activitati.IstoricPersonalActivity" />
+        <activity android:name=".activitati.RateApplicationActivity" />
         <activity android:name=".activitati.ReviewActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
