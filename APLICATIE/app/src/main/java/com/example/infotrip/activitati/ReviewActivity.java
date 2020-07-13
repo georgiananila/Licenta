@@ -4,15 +4,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RatingBar;
 import android.widget.Toast;
 
 import com.example.infotrip.R;
+import com.example.infotrip.database.InfoTripRepository;
+import com.example.infotrip.database.ReviewLocatie;
 
 public class ReviewActivity extends AppCompatActivity {
 
     Button button;
     RatingBar ratingBar;
+    EditText sugestie;
 
     float myRating=0;
     @Override
@@ -22,6 +26,7 @@ public class ReviewActivity extends AppCompatActivity {
 
         button=(Button)findViewById(R.id.buttonAddReview);
         ratingBar=(RatingBar)findViewById(R.id.ratingBarReview);
+        sugestie=(EditText)findViewById(R.id.editTextSugestieLocatie);
 
         ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
@@ -56,8 +61,15 @@ public class ReviewActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(ReviewActivity.this,"Your rating is: "+String.valueOf(myRating),Toast.LENGTH_SHORT).show();
-                //save in database
+                InfoTripRepository.getInstance(getApplicationContext()).InsertReviewLocatie(createReviewLocatie());
             }
         });
+    }
+
+    ReviewLocatie createReviewLocatie(){
+        ReviewLocatie retVal = new ReviewLocatie(0,
+                sugestie.getText().toString(),String.valueOf(ratingBar.getRating()));
+
+        return retVal;
     }
 }

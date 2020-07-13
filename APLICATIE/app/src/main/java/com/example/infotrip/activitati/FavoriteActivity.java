@@ -4,12 +4,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 
 import com.example.infotrip.R;
+import com.example.infotrip.database.Favorite;
+import com.example.infotrip.database.InfoTripRepository;
+import com.example.infotrip.database.Istoric;
 import com.example.infotrip.utility.AdapterIstoric;
+import com.example.infotrip.utility.Email;
 import com.example.infotrip.utility.Item;
 
 import java.util.ArrayList;
@@ -32,12 +38,31 @@ public class FavoriteActivity extends AppCompatActivity {
         //setup recyclerview with the adapter
 
         recyclerView=findViewById(R.id.rv_list_fav);
+        populateFavorite();
+
+    }
+
+    void populateFavorite(){
         List<Item> itemList=new ArrayList<>();
-        //aici preluam din baza de date din tabela favorite in functie de user si adaugam in lista
-        itemList.add(new Item(R.drawable.carp_meridionali_1,"Carpatii Meridionali",R.drawable.cazareicon,3.4f));
-        itemList.add(new Item(R.drawable.carp_orientali_1,"Carpatii Occidentali",R.drawable.cazareicon,3.4f));
+        //aici preluam din baza de date in functie de user si adaugam in lista
+        List<Favorite> listaFavorite = InfoTripRepository.getInstance(
+                getApplicationContext()).getFav(Email.idClient);
+
+        for(Favorite fav : listaFavorite){
+            itemList.add(new Item(createBitmapFromByte(fav.getImage()), fav.getDenumireLocatie(),
+                    R.drawable.cazareicon, fav.getRating()));
+        }
         AdapterIstoric adapterIstoric=new AdapterIstoric(this,itemList);
         recyclerView.setAdapter(adapterIstoric);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
+    Bitmap createBitmapFromByte(byte [] imageInfo){
+        Bitmap retVal = null;
+
+        if(imageInfo != null ){
+            retVal = BitmapFactory.decodeByteArray(imageInfo, 0, imageInfo.length);
+        }
+        return retVal;
+    }
+
 }

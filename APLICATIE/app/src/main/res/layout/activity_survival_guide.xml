@@ -1,9 +1,276 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scroll"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/back6"
+    android:scrollbarStyle="outsideInset"
     tools:context=".activitati.SurvivalGuideActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-56dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textViewYouAreReady"
+        android:layout_width="match_parent"
+        android:layout_height="102dp"
+        android:fontFamily="@font/bungee"
+        android:foregroundGravity="center"
+        android:gravity="center|fill_horizontal"
+        android:text="Are you ready?"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.049" />
+
+        <ImageView
+            android:id="@+id/imgBackPack"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_centerVertical="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintVertical_bias="0.09"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/txt1"
+            android:layout_width="332dp"
+            android:layout_height="58dp"
+            android:drawableEnd="@drawable/list"
+            android:fontFamily="@font/bungee"
+            android:text="List of mountain luggage for beginners"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/v_flipper"
+            app:layout_constraintVertical_bias="0.043" />
+
+        <TextView
+            android:id="@+id/textViewDescrireLista"
+            android:layout_width="777dp"
+            android:layout_height="470dp"
+            android:fontFamily="@font/alegreya_bold"
+            android:text="@string/descrireMmERIDIONALI"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt1"
+            app:layout_constraintVertical_bias="0.045" />
+
+        <ImageView
+            android:id="@+id/imgMunti"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_centerVertical="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintVertical_bias="0.09"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/txt2"
+            android:layout_width="264dp"
+            android:layout_height="85dp"
+            android:drawableEnd="@drawable/winter"
+            android:fontFamily="@font/bungee"
+            android:text="Mountain luggage in winter"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/v_flipper"
+            app:layout_constraintVertical_bias="0.043" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ScrollView
+                android:layout_width="747dp"
+                android:layout_height="221dp">
+
+                <TextView
+                    android:id="@+id/txt5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/alegreya_bold"
+                    android:text="@string/rute"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.494"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintVertical_bias="0.045" />
+
+
+            </ScrollView>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txt6"
+            android:layout_width="261dp"
+            android:layout_height="86dp"
+            android:drawableEnd="@drawable/sun"
+            android:fontFamily="@font/bungee"
+            android:text="Mountain luggage in summer"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/v_flipper"
+            app:layout_constraintVertical_bias="0.043" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ScrollView
+                android:layout_width="747dp"
+                android:layout_height="221dp">
+
+                <TextView
+                    android:id="@+id/txt7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/alegreya_bold"
+                    android:text="@string/rute1"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.494"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintVertical_bias="0.045" />
+
+
+            </ScrollView>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imgCort"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_centerVertical="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintVertical_bias="0.09"
+            tools:ignore="MissingConstraints" />
+        <TextView
+            android:id="@+id/txt10"
+            android:layout_width="251dp"
+            android:layout_height="66dp"
+            android:drawableEnd="@drawable/tent"
+            android:fontFamily="@font/bungee"
+            android:text="With the tent in the mountains:"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/v_flipper"
+            app:layout_constraintVertical_bias="0.043" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ScrollView
+                android:layout_width="747dp"
+                android:layout_height="221dp">
+
+                <TextView
+                    android:id="@+id/txt9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/alegreya_bold"
+                    android:text="@string/rute3"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.494"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintVertical_bias="0.045" />
+
+
+            </ScrollView>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imgGo"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_centerVertical="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintVertical_bias="0.09"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:fontFamily="@font/alegreya_bold"
+
+
+            android:id="@+id/txtvreme"
+            android:text="Check the weather right now..."
+            android:textAlignment="center"
+            android:textSize="20sp" />
+
+
+
+
+    </LinearLayout>
+
+
+    </ScrollView>
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

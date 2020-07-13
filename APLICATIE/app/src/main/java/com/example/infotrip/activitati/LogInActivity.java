@@ -18,6 +18,8 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.infotrip.R;
+import com.example.infotrip.database.InfoTripRepository;
+import com.example.infotrip.utility.Email;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -67,7 +69,7 @@ public class LogInActivity extends AppCompatActivity {
     }
 
     private void loginUser() {
-        String email=mEmail.getText().toString().trim();
+        final String email=mEmail.getText().toString().trim();
         String pass=mpass.getText().toString().trim();
 
         if(TextUtils.isEmpty(email)){
@@ -92,6 +94,8 @@ public class LogInActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
+                    Email.email=email;
+                    Email.idClient = InfoTripRepository.getInstance(getApplicationContext()).getClient(email).getIdClient();
                     Toast.makeText(LogInActivity.this,"Logged is Successfully",Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getApplicationContext(),PrincipalMeniu.class));
                 }else{

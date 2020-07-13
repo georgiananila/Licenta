@@ -29,7 +29,7 @@
         app:layout_constraintVertical_bias="0.093" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/editTextSugestieLocatie"
         android:layout_width="347dp"
         android:layout_height="172dp"
         android:ems="10"
@@ -52,10 +52,10 @@
         android:textAlignment="center"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/editText2"
+        app:layout_constraintEnd_toEndOf="@+id/editTextSugestieLocatie"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editText2"
-        app:layout_constraintTop_toBottomOf="@+id/editText2"
+        app:layout_constraintStart_toStartOf="@+id/editTextSugestieLocatie"
+        app:layout_constraintTop_toBottomOf="@+id/editTextSugestieLocatie"
         app:layout_constraintVertical_bias="0.058" />
 
     <RatingBar
@@ -68,10 +68,10 @@
         android:stepSize="0.5"
         android:progressTint="#F9006C"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/editText2"
+        app:layout_constraintEnd_toEndOf="@+id/editTextSugestieLocatie"
         app:layout_constraintHorizontal_bias="0.458"
         app:layout_constraintStart_toStartOf="@+id/Rate"
-        app:layout_constraintTop_toBottomOf="@+id/editText2"
+        app:layout_constraintTop_toBottomOf="@+id/editTextSugestieLocatie"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button

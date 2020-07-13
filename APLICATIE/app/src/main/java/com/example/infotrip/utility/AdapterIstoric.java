@@ -39,7 +39,7 @@ public  class AdapterIstoric  extends RecyclerView.Adapter<AdapterIstoric.myView
 
     @Override
     public void onBindViewHolder(myViewHolder holder, int position) {
-        holder.background_image.setImageResource(mData.get(position).getBackground());
+        holder.background_image.setImageBitmap(mData.get(position).getBackground());
         holder.profile_photo.setImageResource(mData.get(position).getProfilePhoto());
         holder.tv_title.setText(mData.get(position).getProfile_name());
         holder.tv_review.setText(mData.get(position).getRating()+" Rating");

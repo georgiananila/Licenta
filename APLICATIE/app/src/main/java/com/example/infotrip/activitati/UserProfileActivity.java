@@ -16,6 +16,9 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.infotrip.R;
+import com.example.infotrip.database.Clienti;
+import com.example.infotrip.database.InfoTripRepository;
+import com.example.infotrip.utility.Email;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -40,67 +43,10 @@ public class UserProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
 
-        numeMare=(TextView)findViewById(R.id.textViewUserProfileActivityNumePrenumeUser);
-        firstname=(TextInputEditText)findViewById(R.id.fullnameTextInputUserProfilActivity);
-        email=(TextInputEditText)findViewById(R.id.emailTextInputUserProfilActivity);
-       lastname=(TextInputEditText)findViewById(R.id.BirthDayTextInputUserProfilActivity);
-        imgprofil=(ImageView)findViewById(R.id.imageViewProfileUserProfileActivity);
-        signOUT=(Button)findViewById(R.id.buttonSignOutUserProfile);
-        imgFav=(ImageView)findViewById(R.id.imageViewFav);
-
-        Glide.with(this).load(R.raw.heart).into(imgFav);
-
-
-
-
-        signOUT.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                switch (v.getId()){
-                    case  R.id.buttonSignOutUserProfile:
-                        signout();
-                        break;
-                }
-            }
-        });
-        GoogleSignInOptions gso=new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
-        googleSignInClient= GoogleSignIn.getClient(this,gso);
-        GoogleSignInAccount acct=GoogleSignIn.getLastSignedInAccount(UserProfileActivity.this);
-        if(acct!=null){
-            String personName=acct.getDisplayName();
-            String personFirstName=acct.getGivenName();
-            String personEmail=acct.getEmail();
-            String personLastName=acct.getFamilyName();
-            Uri personPhoto=acct.getPhotoUrl();
-
-            numeMare.setText( personName);
-
-            firstname.setText(personFirstName);
-            lastname.setText(personLastName);
-            email.setText(personEmail);
-            Glide.with(this).load(personPhoto).into(imgprofil);
-
-
-        }
-        istoric=(CardView)findViewById(R.id.cardViewIstoric);
-        istoric.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent1=new Intent(UserProfileActivity.this, IstoricPersonalActivity.class);
-                startActivity(intent1);
-
-            }
-        });
-
-        fav=(CardView)findViewById(R.id.cardViewFav);
-        fav.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent2=new Intent(UserProfileActivity.this, AddPhotoActivity.class);
-                startActivity(intent2);
-
-            }
-        });
+        findTextViews();
+        signInWithGoogle();
+        populateFields();
+        registerOnClickListeners();
 
     }
 
@@ -124,5 +70,80 @@ public class UserProfileActivity extends AppCompatActivity {
     public void vizualizareFavorite(View view) {
         Intent intent=new Intent(UserProfileActivity.this,FavoriteActivity.class);
         startActivity(intent);
+    }
+
+    void findTextViews(){
+        numeMare=(TextView)findViewById(R.id.textViewUserProfileActivityNumePrenumeUser);
+        firstname=(TextInputEditText)findViewById(R.id.fullnameTextInputUserProfilActivity);
+        email=(TextInputEditText)findViewById(R.id.emailTextInputUserProfilActivity);
+        lastname=(TextInputEditText)findViewById(R.id.BirthDayTextInputUserProfilActivity);
+        imgprofil=(ImageView)findViewById(R.id.imageViewProfileUserProfileActivity);
+        signOUT=(Button)findViewById(R.id.buttonSignOutUserProfile);
+        imgFav=(ImageView)findViewById(R.id.imageViewFav);
+
+        Glide.with(this).load(R.raw.heart).into(imgFav);
+        istoric=(CardView)findViewById(R.id.cardViewIstoric);
+        fav=(CardView)findViewById(R.id.cardViewFav);
+    }
+
+    void signInWithGoogle(){
+        GoogleSignInOptions gso=new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
+        googleSignInClient= GoogleSignIn.getClient(this,gso);
+        GoogleSignInAccount acct=GoogleSignIn.getLastSignedInAccount(UserProfileActivity.this);
+        if(acct!=null){
+            String personName=acct.getDisplayName();
+            String personFirstName=acct.getGivenName();
+            String personEmail=acct.getEmail();
+            String personLastName=acct.getFamilyName();
+            Uri personPhoto=acct.getPhotoUrl();
+            populateEditTexts(personName, personFirstName, personLastName, personEmail);
+
+            Glide.with(this).load(personPhoto).into(imgprofil);
+        }
+    }
+
+    private void populateFields() {
+        Clienti client = InfoTripRepository.getInstance(getApplicationContext()).getClient(Email.email);
+        populateEditTexts(client.getPrenume()+ " " + client.getNume(),
+                client.getPrenume(), client.getNume(),client.getEmail());
+    }
+
+    void registerOnClickListeners(){
+        istoric.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1=new Intent(UserProfileActivity.this, IstoricPersonalActivity.class);
+                startActivity(intent1);
+
+            }
+        });
+
+
+        fav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent2=new Intent(UserProfileActivity.this, AddPhotoActivity.class);
+                startActivity(intent2);
+
+            }
+        });
+
+        signOUT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (v.getId()){
+                    case  R.id.buttonSignOutUserProfile:
+                        signout();
+                        break;
+                }
+            }
+        });
+    }
+
+    void populateEditTexts(String personName, String firstName, String lastName, String emailToSet){
+        numeMare.setText( personName);
+        firstname.setText(firstName);
+        lastname.setText(lastName);
+        email.setText(emailToSet);
     }
 }

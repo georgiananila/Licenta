@@ -1,8 +1,10 @@
 package com.example.infotrip.utility;
 
+import android.graphics.Bitmap;
+
 public class Item {
 
-    int background;
+    Bitmap background;
     String profile_name;
     int profilePhoto;
     float rating;
@@ -11,18 +13,18 @@ public class Item {
 
     }
 
-    public Item(int background, String profile_name, int profilePhoto, float rating) {
+    public Item(Bitmap background, String profile_name, int profilePhoto, float rating) {
         this.background = background;
         this.profile_name = profile_name;
         this.profilePhoto = profilePhoto;
         this.rating = rating;
     }
 
-    public int getBackground() {
+    public Bitmap getBackground() {
         return background;
     }
 
-    public void setBackground(int background) {
+    public void setBackground(Bitmap background) {
         this.background = background;
     }
 

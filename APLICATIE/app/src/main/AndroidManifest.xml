@@ -21,7 +21,9 @@
         android:roundIcon="@mipmap/louncher2_foreground"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activitati.AddPhotoActivity"></activity>
+        <activity android:name=".activitati.VremeActivity"></activity>
+        <activity android:name=".activitati.PreSurvivalGuideActivity" />
+        <activity android:name=".activitati.AddPhotoActivity" />
         <activity android:name=".activitati.FavoriteActivity" />
         <activity android:name=".activitati.IstoricPersonalActivity" />
         <activity android:name=".activitati.RateApplicationActivity" />

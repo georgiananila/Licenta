@@ -76,16 +76,27 @@
         android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/textRating"
-        android:layout_width="131dp"
-        android:layout_height="77dp"
+        android:id="@+id/textRatingText"
+        android:layout_width="67dp"
+        android:layout_height="66dp"
         android:layout_marginLeft="240dp"
+        android:layout_marginTop="345dp"
+        android:fontFamily="@font/alegreya_bold"
+        android:text="Rating:"
+        android:textAlignment="center"
+        android:textColor="#1CCECE"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textRating"
+        android:layout_width="67dp"
+        android:layout_height="66dp"
+        android:layout_marginLeft="310dp"
         android:layout_marginTop="345dp"
         android:fontFamily="@font/alegreya_bold"
         android:textAlignment="center"
         android:textColor="#1CCECE"
-        android:textSize="18sp"
-        />
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/textOpen"
@@ -110,6 +121,7 @@
         android:layout_marginBottom="260dp"
         android:elevation="6dp"
         android:src="@drawable/ic_fav"
+        android:onClick="addFav"
         app:backgroundTint="@color/culori_04"
         android:visibility="invisible"
 

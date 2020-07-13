@@ -63,10 +63,10 @@
         android:background="@drawable/custom_button2"
         android:text="@string/add"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/editText"
+        app:layout_constraintEnd_toEndOf="@+id/editTextSugestieAplicatie"
         app:layout_constraintHorizontal_bias="0.645"
-        app:layout_constraintStart_toStartOf="@+id/editText"
-        app:layout_constraintTop_toBottomOf="@+id/editText"
+        app:layout_constraintStart_toStartOf="@+id/editTextSugestieAplicatie"
+        app:layout_constraintTop_toBottomOf="@+id/editTextSugestieAplicatie"
         app:layout_constraintVertical_bias="0.311" />
 
     <ImageView
@@ -98,7 +98,7 @@
         app:layout_constraintVertical_bias="0.097" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/editTextSugestieAplicatie"
         android:layout_width="252dp"
         android:layout_height="53dp"
         android:layout_marginTop="96dp"

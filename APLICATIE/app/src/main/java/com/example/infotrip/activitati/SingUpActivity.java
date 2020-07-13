@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -17,6 +18,9 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.infotrip.R;
+import com.example.infotrip.database.Clienti;
+import com.example.infotrip.database.InfoTripRepository;
+import com.example.infotrip.utility.Email;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
@@ -40,12 +44,10 @@ import java.util.Arrays;
 
 public class SingUpActivity extends AppCompatActivity {
 
-
-
     Button singUp;
     Spinner spinnerTara;
     EditText editTextnume,editTextprenume,editTextdata,editTextemail,editTextpass,editTextpass2;
-String nume,prenume,data,tara,email,pass,pass2;
+    String nume,prenume,data,tara,email,pass,pass2;
 
     private FirebaseAuth firebaseAuth;
 
@@ -210,16 +212,15 @@ String nume,prenume,data,tara,email,pass,pass2;
         }
 
         //progress bar
-
-
-
-
         firebaseAuth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 //aici verificari email daca exista si verificare match password si salvare in room a celorlalte detalii in functie de email
                 if(task.isSuccessful()){
                     Toast.makeText(SingUpActivity.this,"Registered Successfully",Toast.LENGTH_SHORT).show();
+                    InfoTripRepository.getInstance(getApplicationContext()).InsertClient(createClient());
+                    Email.email = email;
+                    Email.idClient = InfoTripRepository.getInstance(getApplicationContext()).getClient(email).getIdClient();
                     startActivity(new Intent(getApplicationContext(),UserProfileActivity.class));
 
                 }else{
@@ -227,9 +228,6 @@ String nume,prenume,data,tara,email,pass,pass2;
                 }
             }
         });
-
-
-
     }
 
     private void openUserProfilActivity() {
@@ -240,5 +238,13 @@ String nume,prenume,data,tara,email,pass,pass2;
     public void onClickLogIn(View view) {
         Intent intentLegaturaLogInSingUp=new Intent(this, LogInActivity.class);
         startActivity(intentLegaturaLogInSingUp);
+    }
+
+    Clienti createClient()
+    {
+        byte [] empty = null;
+        Clienti c = new Clienti(0, nume, prenume, data, email, pass, tara, empty);
+
+        return c;
     }
 }

@@ -4,6 +4,7 @@ package com.example.infotrip.activitati;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Icon;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -19,10 +20,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.example.infotrip.R;
+import com.example.infotrip.database.Favorite;
+import com.example.infotrip.database.InfoTripRepository;
+import com.example.infotrip.database.Istoric;
+import com.example.infotrip.utility.Email;
 import com.example.infotrip.utility.UrlCreator;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
@@ -54,28 +60,9 @@ public class DetaliiLocatiiAccomodationActivity extends AppCompatActivity {
             Log.d("Lista", mInterogrationDetails.get(i).toString());
         }
 
-        textViewDenumire=(TextView)findViewById(R.id.textViewDenumireLocatie) ;
-       // textViewType=(TextView)findViewById(R.id.textType);
-        textViewLatLong=(TextView)findViewById(R.id.textlatlong);
-        textViewVicinity=(TextView)findViewById(R.id.textVicinity);
-        textViewUserRatingTotal=(TextView)findViewById(R.id.testUserRatingTotal);
-        textViewRating=(TextView)findViewById(R.id.textRating);
-        textOpen=(TextView)findViewById(R.id.textOpen);
-
-        imagineIcon=(ImageView)findViewById(R.id.imageViewIcon);
-        imageViewGif=(ImageView)findViewById(R.id.imageViewGif);
+        findTextViews();
 
         populateListByTitle();
-
-        fab_add=(FloatingActionButton)findViewById(R.id.fab_plus);
-        fab_am_fost=(FloatingActionButton)findViewById(R.id.fab_amfost);
-        fab_heart=(FloatingActionButton)findViewById(R.id.fab_fav);
-        fab_review=(FloatingActionButton)findViewById(R.id.fab_review);
-        fabOpen= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fab_open);
-        fabClose= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fab_close);
-        fabRclockWise= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotete_clockwise);
-
-
 
         fab_add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,6 +90,28 @@ public class DetaliiLocatiiAccomodationActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void findTextViews() {
+        textViewDenumire=(TextView)findViewById(R.id.textViewDenumireLocatie) ;
+        // textViewType=(TextView)findViewById(R.id.textType);
+        textViewLatLong=(TextView)findViewById(R.id.textlatlong);
+        textViewVicinity=(TextView)findViewById(R.id.textVicinity);
+        textViewUserRatingTotal=(TextView)findViewById(R.id.testUserRatingTotal);
+        textViewRating=(TextView)findViewById(R.id.textRating);
+        textOpen=(TextView)findViewById(R.id.textOpen);
+
+        imagineIcon=(ImageView)findViewById(R.id.imageViewIcon);
+        imageViewGif=(ImageView)findViewById(R.id.imageViewGif);
+
+        fab_add=(FloatingActionButton)findViewById(R.id.fab_plus);
+        fab_am_fost=(FloatingActionButton)findViewById(R.id.fab_amfost);
+        fab_heart=(FloatingActionButton)findViewById(R.id.fab_fav);
+        fab_review=(FloatingActionButton)findViewById(R.id.fab_review);
+        fabOpen= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fab_open);
+        fabClose= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fab_close);
+        fabRclockWise= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotete_clockwise);
+
     }
 
     private void populateListByTitle(){
@@ -134,7 +143,7 @@ public class DetaliiLocatiiAccomodationActivity extends AppCompatActivity {
                 textViewLatLong.setText("Latitude:"+currentLocation.get("latitude")+" and Longitude:"+currentLocation.get("longitude"));
                 textViewVicinity.setText("Adress:"+currentLocation.get("vicinity"));
                 textViewUserRatingTotal.setText("Total number of ratings:"+ String.valueOf(currentLocation.get("user_ratings_total")));
-                textViewRating.setText("Rating:"+rating );
+                textViewRating.setText(rating );
                 String open=String.valueOf(currentLocation.get("isOpen"));
                 if(open=="true"){
                     open="Yes";
@@ -162,11 +171,45 @@ public class DetaliiLocatiiAccomodationActivity extends AppCompatActivity {
     }
 
     public void addHistory(View view) {
-        //save in database
+        InfoTripRepository.getInstance(getApplicationContext()).InsertIstoric(
+                createIstoric(textViewDenumire.getText().toString(), Float.parseFloat(textViewRating.getText().toString())));
     }
 
     public void addFav(View view) {
         //save in database
+        InfoTripRepository.getInstance(getApplicationContext()).InsertFavorit(
+                createFavorit(textViewDenumire.getText().toString(), Float.parseFloat(textViewRating.getText().toString())));
+    }
+
+    Istoric createIstoric(String denumireLocatie, float rating){
+        Istoric istoric = new Istoric(0, Email.idClient, denumireLocatie,
+                rating, createByteFromImageView());
+        return istoric;
+    }
+
+    Favorite createFavorit(String denumireLocatie, float rating){
+        Favorite favorit = new Favorite(0, Email.idClient, denumireLocatie,
+                rating, createByteFromImageView());
+        return favorit;
+    }
+
+    byte [] createByteFromImageView(){
+        Bitmap bitmap = ((BitmapDrawable) imagineIcon.getDrawable()).getBitmap();
+        byte [] retVal = null;
+
+        if(null != bitmap)
+        {
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            retVal = baos.toByteArray();
+            try {
+                baos.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return retVal;
     }
 
     private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {

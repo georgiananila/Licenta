@@ -40,7 +40,38 @@
     <string name="signOut">Sign Out</string>
     <string name="sort">Sort By</string>
     <string name="location">Locatia noastra...</string>
-    <string name="descrireMmERIDIONALI">Carpații Meridionali reprezintă cea mai înaltă formațiune muntoasă de la noi. Munții apăruți mai ales pe substrat glaciar sunt dintre cei mai abrupți, multe trasee fiind rezervate drumeților cu experiență. </string>
+    <string name="descrireMmERIDIONALI">
+        \t When you set up a weekend getaway in the mountains with\n
+        friends or family, all you have to do is pack your bags.
+         If,\n
+            until now, your mountain luggage consists of a few sweaters /\n
+            sweatshirts, sneakers or boots and a raincoat, if you want to go\n
+            into the category of professionals and learn to pack a perfectly \n
+            complete luggage in less than 30 minutes, we we come to your \n aid!\n
+    <b>-->care products and cosmetics\n</b>
+        <b>-->a raincoat\n</b>
+        <b>-->a notebook / travel diary\n</b>
+         <b>-->first aid kit\n</b>
+         <b>-->mounting kit: LED flashlight, multifunctional knife\n</b>
+         <b>-->car charger \n</b>
+         <b>-->portcard\n</b>
+         <b>-->external battery\n</b>
+         <b>-->spare batteries\n</b>
+         <b>-->sundial wristwatch\n</b>
+         <b>-->protein bars for an energy boost\n</b>
+         <b>-->cap or hat\n</b>
+         <b>-->bag or detachable pocket compartmentalized\n</b>
+         <b>-->medicines: antiallergic, anti-inflammatory, food supplements\n</b>
+        <b> -->electronic compass\n</b>
+         <b>-->led bracelet / led strap\n</b>
+         <b>-->headlight\n</b>
+         <b>-->portable water bottle\n</b>
+         <b>-->Dried fruits\n</b>
+        <b> -->Sunglasses\n</b>
+         <b>-->camera\n</b>
+         <b>-->portable coffee / tea kit\n</b>
+        <b> -->Map\n</b>
+    </string>
     <string name="what">Why choose mountain trails?</string>
     <string name="descriere"><u>Description</u></string>
     <string name="mess"><u>Search Accomodation RIGHT NOW!</u></string>
@@ -48,23 +79,45 @@
 
 
     <string name="rute">
-       <b>Canionul Șapte Scări</b>
-        Canionul Șapte Scări este printre favoritele familiilor care sunt pasionate de drumeții. Aici există cea mai lungă tiroliană din țară (peste 2 km), 23 trasee pentru adulți și copii.
+      \t To get rid of worries, we have prepared below a list of\n things
+        and accessories that you should not miss from your \n
+        mountain backpack in winter:\n
 
-        Defileul săpat în calcar are o lungime de 150 m și ajunge până la o altitudine de 1050 m. Este format din șapte scări din metal cu înălțimea cuprinsă între 2,5 și 15 m. Plecarea se face din localitatea Timișu de Jos (Dâmbul Morii) de pe DN1 și ia circa o oră pe jos.
+        -->thick socks\n
+        -->heated scarf\n
+        -->first layer, second layer\n
+        -->hood for sports equipment\n
+        -->hat with ears\n
+        -->gloves (preferably made of softshell)\n
+        -->frost cream, protective and moisturizing cream\n
+        -->moisturizing lip balm\n
+        -->goggles (for snow)\n
+        -->winter jacket\n
+        -->mountain boots (essential)\n
+    </string>
+    <string name="rute1">
+      -->high protection sunscreen\n
+        -->sunscreen for soothing affected skin\n
+        -->polarized sunglasses\n
+         -->cotton t-shirts and T-shirts\n
+         -->mosquito repellent cream / spray\n
+         -->a pair of sneakers that let your skin breathe\n
+         -->cosmetics with SPF\n
+         -->sport sandals (with flexible sole)\n
+    </string>
 
-        <b>Treptele lui Gabony</b>
+    <string name="rute3">
+      \tHere is what you need to take with you if you are going to go\n
+        to the mountains with a tent:\n
 
-        Treptele lui Gabony reprezintă unul dintre cele mai grele trasee montane de la noi. Este denumit după un nobil maghiar care a donat sume considerabile de bani orașului Brașov. Drumul este așa cum îi spune și numele în trepte. Treptele lui Gabony sunt în număr de 170 și străbat muntele Tâmpa.
-
-        Pe traseu poți admira sute de soiuri de flori, te poți delecta cu zgomotele făcute de păsări și cu fluturii multicolori.
-
-        Traseul pietruit este înlocuit, ușor-ușor, de poteci, bucăți de stânci și rădăcini de copaci. Odată ajuns în vârf te vei putea bucura de efort imortalizând orașul de sus.
-
-        <b>Cabana Pietrele – vf. Retezat</b>
-        Pe drumul dintre Cabana Pietrele și Vârful Retezat vei da peste Valea Stânișoarei care te va duce la Lacul Stânișoara.
-
-De o dificultate medie, traseul urcă până la 1100 m într-o drumeție de circa patru ore. Evită să parcurgi traseul pe timp de iarnă.
+            -->sleeping bag\n
+            -->beds\n
+            -->sleeping pad\n
+            -->rain foil for tent\n
+            -->pillow\n
+            -->a comfortable backpack\n
+            -->flashlight + additional batteries\n
+            -->thermos / liquid container\n
     </string>
     <string name="title_activity_accomodation_google_maps">Map</string>
     <string name="title_activity_search_google_location">Map</string>

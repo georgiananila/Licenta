@@ -5,12 +5,17 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 
 import com.example.infotrip.R;
+import com.example.infotrip.database.InfoTripRepository;
+import com.example.infotrip.database.Istoric;
 import com.example.infotrip.utility.AdapterIstoric;
+import com.example.infotrip.utility.Email;
 import com.example.infotrip.utility.Item;
 
 import java.util.ArrayList;
@@ -34,13 +39,33 @@ public class IstoricPersonalActivity extends AppCompatActivity {
         //setup recyclerview with the adapter
 
          recyclerView=findViewById(R.id.rv_list_istoric);
+        populateIstoric();
+
+
+    }
+
+    void populateIstoric(){
         List<Item> itemList=new ArrayList<>();
         //aici preluam din baza de date in functie de user si adaugam in lista
-        itemList.add(new Item(R.drawable.carp_meridionali_1,"Carpatii Meridionali",R.drawable.cazareicon,3.4f));
-        itemList.add(new Item(R.drawable.carp_orientali_1,"Carpatii Occidentali",R.drawable.cazareicon,3.4f));
+        List<Istoric> listaIstoric = InfoTripRepository.getInstance(
+                getApplicationContext()).getIstoric(Email.idClient);
+
+        for(Istoric is : listaIstoric){
+            itemList.add(new Item(createBitmapFromByte(is.getImage()), is.getDenumireLocatie(),
+                    R.drawable.cazareicon, is.getRating()));
+        }
+
         AdapterIstoric adapterIstoric=new AdapterIstoric(this,itemList);
         recyclerView.setAdapter(adapterIstoric);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+    }
 
+    Bitmap createBitmapFromByte(byte [] imageInfo){
+        Bitmap retVal = null;
+
+        if(imageInfo != null ){
+            retVal = BitmapFactory.decodeByteArray(imageInfo, 0, imageInfo.length);
+        }
+        return retVal;
     }
 }

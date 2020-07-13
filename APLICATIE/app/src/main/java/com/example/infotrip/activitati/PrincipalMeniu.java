@@ -87,6 +87,14 @@ FirebaseAuth auth;
             }
         });
 
+        ghid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent3=new Intent(PrincipalMeniu.this, PreSurvivalGuideActivity.class);
+                startActivity(intent3);
+            }
+        });
+
 
     }
 

@@ -4,12 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.infotrip.R;
+import com.example.infotrip.database.InfoTripRepository;
+import com.example.infotrip.database.ReviewAplicatie;
 
 public class RateApplicationActivity extends AppCompatActivity {
 
@@ -17,12 +20,14 @@ public class RateApplicationActivity extends AppCompatActivity {
     RatingBar ratingBar;
     float myRating=0;
     ImageView imageView;
+    EditText sugestie;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rate_application);
         button=(Button)findViewById(R.id.buttonAddReview);
         ratingBar=(RatingBar)findViewById(R.id.ratingBarReview);
+        sugestie=(EditText)findViewById(R.id.editTextSugestieAplicatie) ;
         imageView=(ImageView)findViewById(R.id.imageViewGifRate) ;
 
         Glide.with(this).load(R.raw.review4).into(imageView);
@@ -60,8 +65,14 @@ public class RateApplicationActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(RateApplicationActivity.this,"Your rating is: "+String.valueOf(myRating),Toast.LENGTH_SHORT).show();
-                //save in database
+                InfoTripRepository.getInstance(getApplicationContext()).InsertReviewApp(createReviewAplicatie());
             }
         });
+    }
+
+    ReviewAplicatie createReviewAplicatie(){
+        ReviewAplicatie retVal = new ReviewAplicatie(0, String.valueOf(ratingBar.getRating()),sugestie.getText().toString());
+        return retVal;
+
     }
 }
