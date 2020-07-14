@@ -221,7 +221,7 @@ public class SingUpActivity extends AppCompatActivity {
                     InfoTripRepository.getInstance(getApplicationContext()).InsertClient(createClient());
                     Email.email = email;
                     Email.idClient = InfoTripRepository.getInstance(getApplicationContext()).getClient(email).getIdClient();
-                    startActivity(new Intent(getApplicationContext(),UserProfileActivity.class));
+                    startActivity(new Intent(getApplicationContext(),PrincipalMeniu.class));
 
                 }else{
                     Toast.makeText(SingUpActivity.this,"Could not register, please try again",Toast.LENGTH_SHORT).show();

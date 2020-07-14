@@ -81,7 +81,7 @@ public class UserProfileActivity extends AppCompatActivity {
         signOUT=(Button)findViewById(R.id.buttonSignOutUserProfile);
         imgFav=(ImageView)findViewById(R.id.imageViewFav);
 
-        Glide.with(this).load(R.raw.heart).into(imgFav);
+
         istoric=(CardView)findViewById(R.id.cardViewIstoric);
         fav=(CardView)findViewById(R.id.cardViewFav);
     }

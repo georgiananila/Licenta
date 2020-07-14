@@ -52,7 +52,7 @@ public class IstoricPersonalActivity extends AppCompatActivity {
 
         for(Istoric is : listaIstoric){
             itemList.add(new Item(createBitmapFromByte(is.getImage()), is.getDenumireLocatie(),
-                    R.drawable.cazareicon, is.getRating()));
+                    R.drawable.correct, is.getRating()));
         }
 
         AdapterIstoric adapterIstoric=new AdapterIstoric(this,itemList);

@@ -50,7 +50,7 @@ public class FavoriteActivity extends AppCompatActivity {
 
         for(Favorite fav : listaFavorite){
             itemList.add(new Item(createBitmapFromByte(fav.getImage()), fav.getDenumireLocatie(),
-                    R.drawable.cazareicon, fav.getRating()));
+                    R.drawable.heart, fav.getRating()));
         }
         AdapterIstoric adapterIstoric=new AdapterIstoric(this,itemList);
         recyclerView.setAdapter(adapterIstoric);
